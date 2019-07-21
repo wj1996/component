@@ -35,13 +35,13 @@ public class TestProducer {
              *  transacted --是否支持事务，数据类型是Boolean，true-支持，false-不支持
              *  支持事务，第二个参数默认无效，建议传递的数据是Session.SESSION_TRANSACTED
              *  不支持事务，常用参数，第二个参数必须传递，且必须有效
-             *
              *  acknowledgeMode - 如何确认消息的处理，使用确认机制实现的
              *  AUTO_ACKNOWLEDGE - 自动确认消息，消息的消费者处理消息后，自动确认，常用
              *  CLIENT_ACKNOWLEDGE - 客户端手动确认，消息的消费者处理后，必须手动确认
              *  DUPS_OK_ACKNOWLEDGE - 由副本的客户端必须手动确认
              *      一个消息可以多次处理
              *      可以降低Session的消耗，在可以容忍重复消息时使用（不推荐使用）
+             *
              */
             session = connection.createSession(false,Session.CLIENT_ACKNOWLEDGE);
             destination = session.createQueue("first-mq");

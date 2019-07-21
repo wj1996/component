@@ -20,10 +20,10 @@ public class ObjectProducer {
             connection = factory.createConnection();
             connection.start();
             Random random = new Random();
-            session = connection.createSession(false,Session.CLIENT_ACKNOWLEDGE);
-            destination = session.createQueue("test-listener");
+            session = connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
+            destination = session.createQueue("test-listener2");
             producer = session.createProducer(destination);
-            for (int i = 0 ;i < 100; i++) {
+            for (int i = 0 ;i < 1; i++) {
                 Integer data = random.nextInt(100);
                 message = session.createObjectMessage(data);
                 producer.send(message);

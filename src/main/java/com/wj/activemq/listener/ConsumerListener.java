@@ -18,7 +18,7 @@ public class ConsumerListener {
             //消费者必须启动连接，否则无法消费
             connection.start();
             session = connection.createSession(false,Session.CLIENT_ACKNOWLEDGE);
-            destination = session.createQueue("test-listener");
+            destination = session.createQueue("test-listener2");
             consumer = session.createConsumer(destination);
             //队列中的消息变化会自动触发监听器，接收消息并处理
             consumer.setMessageListener(new MessageListener() {
@@ -31,14 +31,16 @@ public class ConsumerListener {
                  * @param message
                  */
                 public void onMessage(Message message) {
+
                     try {
                         //确认方法，代表consumer方法已经收到消息，确定后，删除对应的消息
-                        message.acknowledge();
                         ObjectMessage om = (ObjectMessage) message;
                         Object data = om.getObject();
                         System.out.println(data);
-                    } catch (JMSException e) {
-                        e.printStackTrace();
+                        throw new RuntimeException("123");
+//                        message.acknowledge();
+                    } catch (Exception e) {
+//                        throw e;
                     }
                 }
             });

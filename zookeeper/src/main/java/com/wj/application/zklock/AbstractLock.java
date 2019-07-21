@@ -14,4 +14,6 @@ public abstract class AbstractLock {
     public abstract boolean tryLock();
 
     public abstract void waitLock();
+
+    public abstract void unlock();
 }
