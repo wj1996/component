@@ -16,13 +16,17 @@ public class AbstractMq {
     //消息对象
     public Message message = null;
     public boolean isInit = false;
-    public final static int SENDNUM = 2;
+    public final static int SENDNUM = 1;
 
     public void init() throws JMSException {
-        System.out.println(this + "init调用了");
-        factory = new ActiveMQConnectionFactory("admin","admin","tcp://10.0.0.141:61616");
-        connection = (ActiveMQConnection)factory.createConnection();
-        connection.start();
+        if (!isInit) {
+            System.out.println(this + "init调用了");
+            factory = new ActiveMQConnectionFactory("admin","admin","tcp://10.0.0.141:61616");
+            connection = (ActiveMQConnection)factory.createConnection();
+            connection.start();
+            isInit = true;
+        }
+
     }
 
     public void close() throws Exception{
