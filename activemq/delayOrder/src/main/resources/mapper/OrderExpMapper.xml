@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.enjoyedu.dao.OrderExpDao">
-	<resultMap id="BaseResultMap" type="cn.enjoyedu.model.OrderExp">
+<mapper namespace="com.wj.dao.OrderExpDao">
+	<resultMap id="BaseResultMap" type="com.wj.model.OrderExp">
 		<constructor>
 			<idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
 			<arg column="order_no" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -27,7 +27,7 @@
 		delete from order_exp
 		where id = #{id,jdbcType=BIGINT}
 	</delete>
-	<insert id="insert" parameterType="cn.enjoyedu.model.OrderExp">
+	<insert id="insert" parameterType="com.wj.model.OrderExp">
 		insert into order_exp (id, order_no, order_note,
 		insert_time, expire_duration, expire_time,
 		order_status)
@@ -36,7 +36,7 @@
 		#{insertTime,jdbcType=TIMESTAMP}, #{expireDuration,jdbcType=BIGINT}, #{expireTime,jdbcType=TIMESTAMP},
 		#{orderStatus,jdbcType=SMALLINT})
 	</insert>
-	<insert id="insertSelective" parameterType="cn.enjoyedu.model.OrderExp">
+	<insert id="insertSelective" parameterType="com.wj.model.OrderExp">
 		insert into order_exp
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -85,7 +85,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="cn.enjoyedu.model.OrderExp">
+	<update id="updateByPrimaryKeySelective" parameterType="com.wj.model.OrderExp">
 		update order_exp
 		<set>
 			<if test="orderNo != null">
@@ -109,7 +109,7 @@
 		</set>
 		where id = #{id,jdbcType=BIGINT}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="cn.enjoyedu.model.OrderExp">
+	<update id="updateByPrimaryKey" parameterType="com.wj.model.OrderExp">
 		update order_exp
 		set order_no = #{orderNo,jdbcType=VARCHAR},
 		order_note = #{orderNote,jdbcType=VARCHAR},
