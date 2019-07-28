@@ -11,6 +11,7 @@
     <modules>
         <module>zookeeper</module>
         <module>activemq</module>
+        <module>rocketmq</module>
     </modules>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-core -->
@@ -44,6 +45,12 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-framework</artifactId>
                 <version>4.0.0</version>
+            </dependency>
+            <!--rocketmq-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>4.4.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
