@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.concurrent.DelayQueue;
 
 /**
@@ -63,14 +65,14 @@ public class DqMode implements IDelayOrder {
 		}
     }
     
-//    @PostConstruct
-//    public void init() {
-//    	takeOrder = new Thread(new TakeOrder(processDelayOrder));
-//    	takeOrder.start();
-//    }
-//
-//    @PreDestroy
-//    public void close() {
-//    	takeOrder.interrupt();
-//    }
+    @PostConstruct
+    public void init() {
+    	takeOrder = new Thread(new TakeOrder(processDelayOrder));
+    	takeOrder.start();
+    }
+
+    @PreDestroy
+    public void close() {
+    	takeOrder.interrupt();
+    }
 }

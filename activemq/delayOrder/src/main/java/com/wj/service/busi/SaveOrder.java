@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -54,24 +57,27 @@ public class SaveOrder {
             delayOrder.orderDelay(orderExp, expireTime);
     	}
     }
-    
-//    @PostConstruct
-//    public void initDelayOrder() {
-//    	logger.info("系统启动，扫描表中过期未支付的订单并处理.........");
-//
-//    	int counts = orderExpDao.updateExpireOrders();
-//    	logger.info("系统启动，处理了表中["+counts+"]个过期未支付的订单！");
-//
-//    	List<OrderExp> orderList = orderExpDao.selectUnPayOrders();
-//    	logger.info("系统启动，发现了表中还有["+orderList.size()
-//    	+"]个未到期未支付的订单！推入检查队列准备到期检查....");
-//    	for(OrderExp order:orderList) {
-//    		long expireTime
-//    			= order.getExpireTime().getTime()-(new Date().getTime());
-//    		//if(expireTime<=0){马上更新数据库}
-//    		delayOrder.orderDelay(order, expireTime);
-//    	}
-//    }
+
+	/**
+	 * 解决系统可能重启造成的问题（只在容器第一次启动创建该对象时进行处理）
+	 */
+	@PostConstruct
+    public void initDelayOrder() {
+    	logger.info("系统启动，扫描表中过期未支付的订单并处理.........");
+
+    	int counts = orderExpDao.updateExpireOrders();
+    	logger.info("系统启动，处理了表中["+counts+"]个过期未支付的订单！");
+
+    	List<OrderExp> orderList = orderExpDao.selectUnPayOrders();
+    	logger.info("系统启动，发现了表中还有["+orderList.size()
+    	+"]个未到期未支付的订单！推入检查队列准备到期检查....");
+    	for(OrderExp order:orderList) {
+    		long expireTime
+    			= order.getExpireTime().getTime()-(new Date().getTime());
+    		//if(expireTime<=0){马上更新数据库}   //这样做可能会更好点
+    		delayOrder.orderDelay(order, expireTime);
+    	}
+    }
 
 
 

@@ -31,7 +31,7 @@
     <!--配置数据库连接属性-->  
     <context:property-placeholder></context:property-placeholder>  
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">  
-        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3307/test?serverTimezone=GMT%2b8&amp;autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autocommit=false"/>
         <property name="username" value="root"/>  
         <property name="password" value="root"/>
@@ -69,7 +69,7 @@
 
 	<!-- ActiveMQ 连接工厂 -->
 	<amq:connectionFactory id="amqConnectionFactory"
-		brokerURL="tcp://127.0.0.1:61616" userName="admin" password="admin" />
+		brokerURL="tcp://10.0.0.141:61616" userName="admin" password="admin" />
 
 	<!-- Spring Caching连接工厂 -->
 	<!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
@@ -88,10 +88,10 @@
 	</bean>
 
 	<!-- 定义消费者接收消息需要的Queue监听器 -->
-	<!--<jms:listener-container destination-type="queue"
+	<jms:listener-container destination-type="queue"
 		connection-factory="connectionFactory">
 		<jms:listener destination="order.delay" ref="mqConsume"></jms:listener>
-	</jms:listener-container>-->
+	</jms:listener-container>
 	<!-- Queue类型 start end -->
 
 </beans>  
