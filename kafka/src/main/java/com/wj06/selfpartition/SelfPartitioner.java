@@ -13,7 +13,7 @@ public class SelfPartitioner implements Partitioner {
         //以value值进行分区
         List<PartitionInfo> partitionInfos = cluster.partitionsForTopic(topic);
         int num = partitionInfos.size();
-        int parId = ((String)value).hashCode() % num;
+        int parId = (parId = ((String)value).hashCode() % num) > 0 ? parId : 0;
         return parId;
     }
 

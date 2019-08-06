@@ -19,7 +19,7 @@ public class SelfProducer {
         Properties properties = KafkaConst.producerConfig(StringSerializer.class, StringSerializer.class);
         properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG,SelfPartitioner.class); //配置自定义分区器信息
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
-        ProducerRecord<String,String> record = new ProducerRecord<String, String>(Constant.SELF_SERIAL_TOPIC,null,String.valueOf(System.currentTimeMillis()),"teacher01");
+        ProducerRecord<String,String> record = new ProducerRecord<String, String>(Constant.SELF_PARTITION_TOPIC,null,String.valueOf(System.currentTimeMillis()),"teacher01");
 
         Future<RecordMetadata> future = producer.send(record);
         RecordMetadata recordMetadata = future.get();
@@ -27,6 +27,6 @@ public class SelfProducer {
             System.out.printf("偏移量：%s,分区：%s",recordMetadata.offset(),recordMetadata.partition());
         }
 
-        System.in.read();
+//        System.in.read();
     }
 }
