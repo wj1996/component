@@ -10,6 +10,9 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.concurrent.Future;
 
+/**
+ * kafka三种不同的发送方式
+ */
 public class KafkaAsynProducer {
 
     public static void main(String[] args) {
