@@ -23,19 +23,6 @@
     <dubbo:protocol name="dubbo" port="20880"/>
     <dubbo:protocol name="rmi" port="21880"/>
 
-    <!-- 声明需要暴露的服务接口
-        把容器内的服务开放为RPC接口
-     -->
-    <dubbo:service interface="com.wj.service.OrderService" ref="orderService" protocol="dubbo">
-        <dubbo:method name="getDetail" cache="lru" />
-    </dubbo:service>
-
-    <dubbo:service interface="com.wj.service.UserService" ref="userService" protocol="rmi"/>
-    <dubbo:service interface="com.wj.service.VipUserService" ref="vipUserService" />
-
-     <!--和本地bean一样实现服务，把服务交给IOC容器 -->
-    <bean id="orderService" class="com.wj.service.impl.OrderServiceImpl"/>
-    <bean id="userService" class="com.wj.service.impl.UserServiceImpl"/>
-    <bean id="vipUserService" class="com.wj.service.impl.VipUserServiceImpl"/>
+    <dubbo:annotation package="com.wj.service" />
 
 </beans>

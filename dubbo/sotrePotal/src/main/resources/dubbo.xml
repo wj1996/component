@@ -11,7 +11,7 @@
     <dubbo:application name="store"/>
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://10.0.0.141:2181"/>
+    <dubbo:registry protocol="zookeeper" address="10.0.0.141:2181"/>
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService
 

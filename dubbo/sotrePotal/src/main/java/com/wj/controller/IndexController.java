@@ -21,10 +21,16 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexController /*implements ApplicationContextAware*/{
    private ApplicationContext context;
 
-    @Autowired
+    /*@Autowired
     private UserService userService;
 
     @Autowired
+    private OrderService orderService;*/
+
+    @Reference
+    private UserService userService;
+
+    @Reference
     private OrderService orderService;
 
 
