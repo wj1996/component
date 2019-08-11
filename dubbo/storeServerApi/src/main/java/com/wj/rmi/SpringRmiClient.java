@@ -1,6 +1,6 @@
 package com.wj.rmi;
 
-import com.enjoy.service.VipUserService;
+import com.wj.service.VipUserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

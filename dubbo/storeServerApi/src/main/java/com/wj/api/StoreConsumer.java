@@ -8,6 +8,9 @@ import com.wj.service.VipUserService;
 
 import java.io.IOException;
 
+/**
+ * api方式消费
+ */
 public class StoreConsumer {
     public static void main(String[] args) throws IOException {
         // 当前应用配置
@@ -17,7 +20,7 @@ public class StoreConsumer {
         // 连接注册中心配置
         RegistryConfig registry = new RegistryConfig();
         registry.setProtocol("zookeeper");
-        registry.setAddress("172.17.0.2:2181");
+        registry.setAddress("10.0.0.141:2181");
 
         // 服务提供者协议配置
         ProtocolConfig protocol = new ProtocolConfig();

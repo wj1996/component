@@ -13,16 +13,29 @@
 
     <context:component-scan base-package="com.wj.dao"/>
 
-    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <!-- 提供方应用信息，用于计算依赖关系
+        项目名称，建议直接以项目名称对应
+    -->
     <dubbo:application name="storeServer"/>
 
-    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <!-- 使用zookeeper注册中心暴露服务地址
+        指定注册中心，消费和生产通用的，都需要指定
+    -->
     <dubbo:registry address="zookeeper://10.0.0.141:2181"/>
 
-    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <!-- 用dubbo协议在20880端口暴露服务
+        指使用什么协议 dubbo/rmi/rest
+     -->
     <dubbo:protocol name="dubbo" port="20880"/>
-    <dubbo:protocol name="rmi" port="21880"/>
+    <!--<dubbo:protocol name="rmi" port="21880"/>-->
 
     <dubbo:annotation package="com.wj.service" />
+
+    <!--全局配置-->
+    <dubbo:provider timeout="3000" />
+    <dubbo:consumer timeout="2000" check="false" />
+
+
+
 
 </beans>

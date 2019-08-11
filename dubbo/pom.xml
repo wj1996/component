@@ -16,13 +16,9 @@
         <module>storeapi</module>
         <module>storeServerApi</module>
         <module>storeServer</module>
+        <module>springboot</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-        </dependency>
-    </dependencies>
+
 
 </project>

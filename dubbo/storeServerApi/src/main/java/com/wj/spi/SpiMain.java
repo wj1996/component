@@ -1,6 +1,6 @@
 package com.wj.spi;
 
-import com.enjoy.spi.service.SpiService;
+import com.wj.spi.service.SpiService;
 
 import java.io.IOException;
 import java.util.Iterator;

@@ -1,7 +1,7 @@
 package com.wj.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.enjoy.service.VipUserService;
+import com.wj.service.VipUserService;
 
 @Service
 public class VipUserServiceImpl implements VipUserService {
