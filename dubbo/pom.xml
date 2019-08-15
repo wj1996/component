@@ -12,7 +12,7 @@
     <artifactId>dubbo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>sotrePotal</module>
+        <module>storePotal</module>
         <module>storeapi</module>
         <module>storeServerApi</module>
         <module>storeServer</module>

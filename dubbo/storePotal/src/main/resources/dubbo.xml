@@ -17,11 +17,16 @@
 
     -->
     <dubbo:reference id="orderService" interface="com.wj.service.OrderService" >
-        <dubbo:method name="getDetail" cache="lru" />
+        <!--<dubbo:method name="getDetail" cache="lru" />-->
+        <dubbo:method name="submit" />
+        <dubbo:method name="cancel" />
     </dubbo:reference>
 
     <dubbo:reference id="userService" interface="com.wj.service.UserService"  />
     <dubbo:reference id="vipUserService" interface="com.wj.service.VipUserService"  />
+    <dubbo:reference interface="com.wj.service.PayService" id="payService" >
+            <dubbo:method name="cancelPay" async="true" />
+    </dubbo:reference>
 
 
 </beans>
