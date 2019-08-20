@@ -18,15 +18,18 @@
     -->
     <dubbo:reference id="orderService" interface="com.wj.service.OrderService" >
         <!--<dubbo:method name="getDetail" cache="lru" />-->
-        <dubbo:method name="submit" />
-        <dubbo:method name="cancel" />
+        <dubbo:method name="submit" async="false" onreturn="callback.onOrderSubmit" onthrow="callback.onError" />
+        <!--<dubbo:method name="cancel" />-->
     </dubbo:reference>
 
     <dubbo:reference id="userService" interface="com.wj.service.UserService"  />
     <dubbo:reference id="vipUserService" interface="com.wj.service.VipUserService"  />
     <dubbo:reference interface="com.wj.service.PayService" id="payService" >
-            <dubbo:method name="cancelPay" async="true" />
+           <!-- <dubbo:method name="cancelPay" async="true" />-->
     </dubbo:reference>
+
+    <!--必须配置回调类，交给spring容器-->
+    <bean id="callback" class="com.wj.Callback" />
 
 
 </beans>

@@ -23,7 +23,7 @@
         <property name="suffix" value=".jsp"></property>
 
     </bean>
-    <!--<import resource="dubbo.xml"/>-->
+    <import resource="dubbo.xml"/>
     <!--<dubbo:application name="store"/>-->
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
@@ -39,6 +39,6 @@
     <dubbo:reference id="userService" interface="com.wj.service.UserService"  />
     <dubbo:reference id="vipUserService" interface="com.wj.service.VipUserService"    />-->
 
-    <dubbo:annotation package="com.wj.controller" />
+   <!-- <dubbo:annotation package="com.wj.controller" />-->
 
 </beans>

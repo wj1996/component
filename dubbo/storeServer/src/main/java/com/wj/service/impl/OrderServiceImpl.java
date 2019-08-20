@@ -15,4 +15,13 @@ public class OrderServiceImpl implements OrderService {
         System.out.println(super.getClass().getName()+"被调用一次："+System.currentTimeMillis());
         return orderDao.getDetail(id);
     }
+
+    public void submit(double money) {
+        if ("1.0".equals(String.valueOf(money))) {
+            System.out.println("警告：订单重复提交");
+            throw new RuntimeException("订单重复提交");
+        }
+        System.out.println("提交订单：" + money);
+
+    }
 }
