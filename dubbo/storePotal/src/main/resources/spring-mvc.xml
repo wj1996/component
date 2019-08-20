@@ -23,6 +23,8 @@
         <property name="suffix" value=".jsp"></property>
 
     </bean>
+    <!--必须配置回调类，交给spring容器-->
+    <bean id="callback" class="com.wj.Callback" />
     <import resource="dubbo.xml"/>
     <!--<dubbo:application name="store"/>-->
 

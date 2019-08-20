@@ -19,14 +19,11 @@ import java.util.concurrent.Future;
 @Controller
 public class CancelController {
 
-
     @Autowired
     private PayService payService;
 
-
     @Autowired
     private OrderService orderService;
-
 
     @RequestMapping("cancel")
     public String cancel(int orderId, HttpServletRequest request) throws InterruptedException {
@@ -48,7 +45,6 @@ public class CancelController {
 
         return "cancel";
     }
-
     /**
      * 事件通知
      * @param request
@@ -58,12 +54,8 @@ public class CancelController {
     @RequestMapping("order/submit")
     public String submit(HttpServletRequest request, HttpServletResponse response,Double money) {
         String detail = orderService.getDetail("1");
-
         orderService.submit(money);
-
         request.setAttribute("order",detail);
-
         return "order";
     }
-
 }
