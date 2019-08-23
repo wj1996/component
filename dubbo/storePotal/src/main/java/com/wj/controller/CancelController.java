@@ -3,13 +3,16 @@ package com.wj.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.rpc.RpcContext;
 import com.alibaba.dubbo.rpc.service.EchoService;
+import com.alibaba.dubbo.rpc.service.GenericService;
 import com.wj.service.OrderService;
 import com.wj.service.PayService;
+import org.jboss.netty.handler.codec.http.HttpResponse;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -90,5 +93,16 @@ public class CancelController implements ApplicationContextAware {
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
+    }
+
+    /**
+     * 泛化调用
+     */
+    @RequestMapping("other")
+    @ResponseBody
+    public String other(HttpServletRequest request) {
+        GenericService genericService = (GenericService) applicationContext.getBean("otherService");
+        Object obj = genericService.$invoke("test",new String[]{"java.lang.String"},new Object[]{"zhangshan"});
+        return obj.toString();
     }
 }
