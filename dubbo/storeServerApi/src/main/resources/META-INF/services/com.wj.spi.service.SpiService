@@ -1,0 +1,4 @@
+com.wj.spi.service.RestSpiServiceImpl
+com.wj.spi.service.RmiSpiServiceImpl
+
+#需要的策略实现 jar包下面的META-INF.service下面  com.wj.spi.service.SpiService

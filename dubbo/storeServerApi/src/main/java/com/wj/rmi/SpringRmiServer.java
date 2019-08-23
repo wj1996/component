@@ -9,9 +9,9 @@ public class SpringRmiServer {
     }
 
     public static void testRmiClient() {
-        ApplicationContext ac=new ClassPathXmlApplicationContext("spring-server.xml");
-
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-server.xml");
         System.out.println("RMI服务端启动完成");
+
     }
 }
 

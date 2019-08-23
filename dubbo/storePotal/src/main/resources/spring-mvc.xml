@@ -25,7 +25,7 @@
     </bean>
     <!--必须配置回调类，交给spring容器-->
     <bean id="callback" class="com.wj.Callback" />
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+   <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -37,7 +37,7 @@
                 </bean>
             </list>
         </property>
-    </bean>
+    </bean>-->
     <import resource="dubbo.xml"/>
     <!--<dubbo:application name="store"/>-->
 
