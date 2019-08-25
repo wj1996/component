@@ -14,15 +14,16 @@
     <dubbo:registry protocol="zookeeper" address="10.0.0.141:2181"/>
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService
-
+            loadbalance="last"
+            loadbalance="first"
     -->
-    <dubbo:reference id="orderService" interface="com.wj.service.OrderService" loadbalance="last">
+    <dubbo:reference id="orderService" interface="com.wj.service.OrderService" loadbalance="last" >
         <!--<dubbo:method name="getDetail" cache="lru" />-->
         <dubbo:method name="submit" async="true" onreturn="callback.onOrderSubmit" onthrow="callback.onError" />
         <!--<dubbo:method name="cancel" />-->
     </dubbo:reference>
 
-    <dubbo:reference id="userService" interface="com.wj.service.UserService"  loadbalance="first" />
+    <dubbo:reference id="userService" interface="com.wj.service.UserService" loadbalance="first"   />
     <dubbo:reference id="vipUserService" interface="com.wj.service.VipUserService"  />
     <dubbo:reference interface="com.wj.service.PayService" id="payService" >
            <!-- <dubbo:method name="cancelPay" async="true" />-->

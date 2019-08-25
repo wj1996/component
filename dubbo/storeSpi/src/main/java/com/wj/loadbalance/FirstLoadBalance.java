@@ -7,7 +7,7 @@ import com.alibaba.dubbo.rpc.RpcException;
 
 import java.util.List;
 
-public class LoadBalance implements com.alibaba.dubbo.rpc.cluster.LoadBalance {
+public class FirstLoadBalance implements com.alibaba.dubbo.rpc.cluster.LoadBalance {
 
 
     /**

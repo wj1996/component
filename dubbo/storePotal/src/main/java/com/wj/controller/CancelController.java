@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -75,9 +78,9 @@ public class CancelController implements ApplicationContextAware {
      */
     @RequestMapping("test2")
     @ResponseBody
-    public HashMap test(HttpServletRequest request) {
+    public Map test(HttpServletRequest request) {
         String[] serviceIds = new String[]{"orderService","userService","vipUserService","payService"};
-        HashMap<String,String> map = new HashMap<String, String>();
+        Map<String,String> map = new HashMap<String, String>();
         Object ret = null;
         for (String id : serviceIds) {
             try {
@@ -90,6 +93,17 @@ public class CancelController implements ApplicationContextAware {
 
         return map;
     }
+
+
+    @RequestMapping("test3")
+    @ResponseBody
+    public List test2() {
+        List list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        return list;
+    }
+
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;

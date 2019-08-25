@@ -21,17 +21,17 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexController /*implements ApplicationContextAware*/{
    private ApplicationContext context;
 
-    /*@Autowired
+    @Autowired
     private UserService userService;
 
     @Autowired
-    private OrderService orderService;*/
+    private OrderService orderService;
 
-    @Reference
+    /*@Reference
     private UserService userService;
 
     @Reference
-    private OrderService orderService;
+    private OrderService orderService;*/
 
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)

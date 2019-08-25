@@ -6,7 +6,6 @@ import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.RpcException;
 
 import java.util.List;
-
 public class LastLoadBalance implements com.alibaba.dubbo.rpc.cluster.LoadBalance {
 
 
