@@ -1,11 +1,12 @@
 package com.wj.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.wj.dao.OrderDao;
 import com.wj.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service
+@Service(filter = {"paramFilter"})
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

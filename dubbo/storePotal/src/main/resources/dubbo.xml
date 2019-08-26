@@ -13,6 +13,8 @@
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="10.0.0.141:2181"/>
 
+    <dubbo:consumer filter="myFilter" />
+
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService
             loadbalance="last"
             loadbalance="first"
@@ -22,8 +24,10 @@
         <dubbo:method name="submit" async="true" onreturn="callback.onOrderSubmit" onthrow="callback.onError" />
         <!--<dubbo:method name="cancel" />-->
     </dubbo:reference>
-
-    <dubbo:reference id="userService" interface="com.wj.service.UserService" loadbalance="first"   />
+    <!--
+        设置负载，如果当前只有1台服务提供，不会再走LoadBalance的方法
+    -->
+    <dubbo:reference id="userService" interface="com.wj.service.UserService" loadbalance="first"    />
     <dubbo:reference id="vipUserService" interface="com.wj.service.VipUserService"  />
     <dubbo:reference interface="com.wj.service.PayService" id="payService" >
            <!-- <dubbo:method name="cancelPay" async="true" />-->

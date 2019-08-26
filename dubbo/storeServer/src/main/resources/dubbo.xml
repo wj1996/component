@@ -31,8 +31,9 @@
 
     <dubbo:annotation package="com.wj.service" />
 
-    <!--全局配置-->
-    <dubbo:provider timeout="3000" />
+
+    <!--全局配置 filter="paramFilter"-->
+    <dubbo:provider timeout="3000"  />
     <dubbo:consumer timeout="2000" check="false" />
 
 

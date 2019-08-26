@@ -1,0 +1,2 @@
+myFilter=com.wj.filter.MyFilter
+paramFilter=com.wj.filter.ParamFilter
