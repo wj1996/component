@@ -1,7 +1,7 @@
 package com.wj.test;
 
 import com.wj.App2;
-import com.wj.dao.UsersMapper;
+import com.wj.dao.UserMapper;
 import com.wj.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ public class UserTest {
 
 
     @Resource
-    public UsersMapper usersMapper;
+    public UserMapper userMapper;
 
     @Test
     public void add() {
@@ -27,6 +27,6 @@ public class UserTest {
         user.setId(1);
         user.setUsername("test");
         user.setPasswd("123");
-        usersMapper.insert(user);
+        userMapper.insert(user);
     }
  }

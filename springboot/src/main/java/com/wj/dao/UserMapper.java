@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 /**
  * 如果使用@Mapper的方式，有一个就需要写一个，比较麻烦，实际使用过程中，不使用这种方式
  */
-public interface UsersMapper {
+public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);
