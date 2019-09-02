@@ -14,6 +14,7 @@
         <module>rocketmq</module>
         <module>kafka</module>
         <module>dubbo</module>
+        <module>springboot</module>
     </modules>
     <properties>
         <springframework.version>5.0.9.RELEASE</springframework.version>
