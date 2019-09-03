@@ -7,7 +7,8 @@ springboot如何单元测试？？？？
 
 
 事务
-
+    通过@Transactional注解
+    见UserServiceImpl类
 全局异常处理
     见util中的GlobalExceptionHandler
 访问静态资源
@@ -36,4 +37,25 @@ Swagger2
     slf4j(simple logging facade for java)
     logback（建议使用）
     log4j2
-    log4j
+    log4j（已停止维护）
+热加载
+    spring-boot-devtools
+
+    不会变化的jar
+    可能会变化的Java类
+
+编译打包
+    jar(springboot建议的打jar包)
+        mvn clean package 打一个jar包
+        cmd命令行下运行jar包
+            java -jar springboot-1.0-SNAPSHOT.jar
+
+            运行成功后 正常访问
+    war
+        设置打包方式为war包
+        需要让启动类继承SpringBootServletInitializer
+        重写configure方法
+            return builder.sources(App2.class); 见App2类
+        java -jar springboot-1.0-SNAPSHOT.war
+集成Redis
+

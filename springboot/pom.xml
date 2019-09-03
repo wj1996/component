@@ -10,6 +10,11 @@
         <version>2.1.2.RELEASE</version>
     </parent>
 
+    <groupId>com.wj</groupId>
+    <artifactId>springboot</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -17,7 +22,6 @@
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
     </properties>
 
-    <artifactId>springboot</artifactId>
     <dependencies>
         <!--基本使用-入门包-->
         <dependency>
@@ -94,6 +98,62 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--热加载组件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <!--
+            集成Redis
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
     </dependencies>
+
+
+    <!--
+        idea热加载需要配置的插件
+        这样设置后还是不生效的，可以采用的方式：
+            第一：
+                修改内容后，ctrl+shift+F9 手动刷新 可以
+            第二：
+                设置complier中的自动编译
+                ctrl+shift+alt + /  打开registry
+                设置这个complier .automake.allow.when.app.running
+
+    -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--如果不设置fork，那么restart，devtools热部署不会起作用-->
+                    <fork>true</fork>
+                </configuration>
+                <!--编译打包设置-->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--编译打包设置-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
