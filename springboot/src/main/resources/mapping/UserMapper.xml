@@ -12,21 +12,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
-    from enjoy_user
+    from user
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from enjoy_user
+    delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wj.model.User" >
-    insert into enjoy_user (id, passwd, username
+    insert into user (id, passwd, username
       )
     values (#{id,jdbcType=INTEGER}, #{passwd,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.wj.model.User" >
-    insert into enjoy_user
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -51,7 +51,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.wj.model.User" >
-    update enjoy_user
+    update user
     <set >
       <if test="passwd != null" >
         passwd = #{passwd,jdbcType=VARCHAR},
@@ -63,7 +63,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wj.model.User" >
-    update enjoy_user
+    update user
     set passwd = #{passwd,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
@@ -72,7 +72,7 @@
   <select id="findByUsernameAndPasswd" resultType="com.wj.model.User" parameterType="map">
     select
     <include refid="Base_Column_List" />
-    from enjoy_user where 1=1
+    from user where 1=1
     <if test="passwd != null" >
       and passwd = #{passwd,jdbcType=VARCHAR}
     </if>

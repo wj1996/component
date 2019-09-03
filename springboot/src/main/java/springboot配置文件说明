@@ -4,3 +4,36 @@ application.yml
 
 
 springboot如何单元测试？？？？
+
+
+事务
+
+全局异常处理
+    见util中的GlobalExceptionHandler
+访问静态资源
+    放在resources目录下面
+    /static
+    /public
+jsp使用
+    不建议使用
+    依赖web容器
+    前后端分离 完全分离
+    注意：
+        必须建立跟java,resources同级的目录webapp,在webapp下面建立文件夹，建立在WEB-INF/jsp文件夹或者将JSP文件放在webapp文件夹下面的jsp文件夹下，指定后即可能访问
+        如果想访问，在当前环境目录中，是不能访问的，设置的是一个相对目录，当前springboot的相对目录是对于component来说的，是访问不到的，单独导入这个工程即可，
+        已经测试过
+不建议使用jsp，建议使用模板引擎（thymeleaf）
+    需要在resources目录下面新建目录templates
+    Controller见Controller中的ThymeleafController
+Swagger2
+    构建API文档
+    随项目自动生成强大的Restful API文档，减少工作量，
+    API文档与代码整合在一起，便于同步更新API说明，
+    页面测试功能来调试每个Restful API
+    访问链接：
+        http://localhost:8080/swagger-ui.html
+集成日志
+    slf4j(simple logging facade for java)
+    logback（建议使用）
+    log4j2
+    log4j

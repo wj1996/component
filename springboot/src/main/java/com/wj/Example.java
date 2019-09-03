@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * SpringBoot入门案例
  */
-@RestController    //就是个组合注解 Controller+ResponseBody+...组合的注解
+@RestController    //就是个组合注解 controller+ResponseBody+...组合的注解
 @EnableAutoConfiguration
 public class Example {
 
