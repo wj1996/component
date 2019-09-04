@@ -59,3 +59,28 @@ Swagger2
         java -jar springboot-1.0-SNAPSHOT.war
 集成Redis
 
+SpringBoot CTL
+
+springboot性能优化
+    扫描优化
+        在默认情况下，我们会使用@SpringBootApplication注解来自动获取应用的配置信息，但这样也会带来一些副作用。使用这个注解后，会触发自动配置（auto-configuration）
+        和组件扫描（component scanning），这跟使用@Configuration、@EnableAutoConfiguration和@ComponentScan三个注解的作用是一样的。
+        这样做给开发带来方便的同时，会有以下的一些影响：
+        	会导致项目启动时间变长（原因：加载了我们不需要使用的组件,浪费了cpu资源和内存资源）。当启动一个大的应用程序，或将做大量的集成测试启动应用程序时，影响会特别明显。
+        	会加载一些不需要的多余的实例（beans）。
+        	会增加CPU消耗和内存的占用。
+        见App3
+        //运行类加VM参数 -Ddebug
+        控制台输入的信息，大概分成四大类
+
+        1.	Positive matches:
+        匹配（以及匹配的原因）
+        2.	Negative matches:
+        忽略匹配（以及忽略的原因）
+        3.	Exclusions:
+        排除的配置类
+        4.	Unconditional classes:
+        没有带任何条件，肯定要扫描的类
+    设置JVM内存
+
+
