@@ -82,5 +82,17 @@ springboot性能优化
         4.	Unconditional classes:
         没有带任何条件，肯定要扫描的类
     设置JVM内存
+        -XX:PrintGCDetails -Xmx300M -Xms1M
+
+     容器
+        tomcat
+        jetty
+        undertow(效率相比较会有提升)
+            使用Jmeter可以测试性能
+            不支持jsp，基于nio
+            设置，需要排除Tomcat的依赖，新增undertow的依赖
+Atomikos
+    Atomikos 是一个兼容标准的SUN公司JTA API，为Java平台提供增值服务的并且开源类事务管理器。
+    JTA（java Transaction API）是JavaEE 13 个开发规范之一。java 事务API，允许应用程序执行分布式事务处理
 
 
