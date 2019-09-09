@@ -1,0 +1,25 @@
+server:
+  port: 7003
+eureka:
+  instance:
+    hostname: eureka3
+  #启动报错加入下列配置可以避免报错
+  client:
+    #是否要从注册中心获取信息
+    fetch-registry: false
+    #不需要注册到Eureka
+    register-with-eureka: true
+    service-url:
+      #这样设置后  注意 在 hosts文件中设置一下这个对应关系  127.0.0.1 eureka 127.0.0.1 eureka2 127.0.0.1 eureka3 方便查看
+      defaultZone: http://admin:wj@eureka:7001/eureka,http://admin:wj@eureka2:7002/eureka
+  #配置服务端信息
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的间隔时间，毫秒，默认60s
+    enable-self-preservation: false #关闭保护模式
+spring:
+  security:
+    user:
+      name: admin
+      password: wj
+      roles:
+        - USER

@@ -1,0 +1,16 @@
+注意下列的配置
+    mybatis:
+      # 所有的mapper映射文件
+     mapper-locations:
+       - classpath:mapping/*.xml
+Eureka注册中心
+    Eureka高可用
+    服务注册与发现
+Ribbon负载均衡
+    Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Netflix Ribbon实现。
+    Ribbon只是一个工具类框架，它不像服务注册中心、配置中心、API网关那样需要独立部署
+
+    eureka中已经集成了ribbon
+
+
+    提供多个服务时，注意需要设置不一样的instance-id，设置相同的application.name

@@ -1,0 +1,8 @@
+server:
+  port: 80
+#配置注册中心
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:wj@eureka:7001/eureka,http://admin:wj@eureka2:7002/eureka,http://admin:wj@eureka3:7003/eureka

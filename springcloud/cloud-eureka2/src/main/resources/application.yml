@@ -1,0 +1,24 @@
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka2
+  #启动报错加入下列配置可以避免报错
+  client:
+    #是否要从注册中心获取信息
+    fetch-registry: false
+    #不需要注册到Eureka
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:wj@eureka:7001/eureka,http://admin:wj@eureka3:7003/eureka
+  #配置服务端信息
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的间隔时间，毫秒，默认60s
+    enable-self-preservation: false #关闭保护模式
+spring:
+  security:
+    user:
+      name: admin
+      password: wj
+      roles:
+        - USER
