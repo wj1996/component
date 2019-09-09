@@ -1,8 +1,6 @@
 package com.wj.controller;
 
 import com.wj.vo.Product;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,19 +12,16 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("/consumer2")
-public class ConsumerProductController {
-    public static final String PRODUCT_GET_URL = "http://CLOUD-PROVIDER/product/get/";
-    public static final String PRODUCT_LIST_URL="http://CLOUD-PROVIDER/product/list/";
-    public static final String PRODUCT_ADD_URL = "http://CLOUD-PROVIDER/product/add/";
+@RequestMapping("/consumer")
+public class ConsumerProductController2 {
+    public static final String PRODUCT_GET_URL = "http://localhost:8080/product/get/";
+    public static final String PRODUCT_LIST_URL="http://localhost:8080/product/list/";
+    public static final String PRODUCT_ADD_URL = "http://localhost:8080/product/add/";
     @Resource
     private RestTemplate restTemplate;
 
     @Resource
     private HttpHeaders httpHeaders;
-
-    @Resource
-    private LoadBalancerClient loadBalancerClient;
 
     @RequestMapping("/product/get")
     public Object getProduct(long id) {
@@ -43,11 +38,6 @@ public class ConsumerProductController {
 
     @RequestMapping("/product/list")
     public  Object listProduct() {
-        ServiceInstance serviceInstance = this.loadBalancerClient.choose("CLOUD-PROVIDER") ;
-        System.out.println(
-                "【*** ServiceInstance ***】host = " + serviceInstance.getHost()
-                        + "、port = " + serviceInstance.getPort()
-                        + "、serviceId = " + serviceInstance.getServiceId());
         /*
         * 使用认证的 使用exchange方法
         * */

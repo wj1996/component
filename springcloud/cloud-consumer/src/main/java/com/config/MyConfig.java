@@ -1,4 +1,4 @@
-package com.wj.config;
+package com.config;
 
 import com.netflix.loadbalancer.IRule;
 import org.springframework.context.annotation.Bean;

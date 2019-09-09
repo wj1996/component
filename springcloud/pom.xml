@@ -18,6 +18,7 @@
         <module>cloud-eureka</module>
         <module>cloud-eureka2</module>
         <module>cloud-eureka3</module>
+        <module>cloud-consumer-ribbon</module>
     </modules>
 
     <properties>

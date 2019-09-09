@@ -1,0 +1,10 @@
+server:
+  port: 80
+#配置注册中心
+ribbon:
+  eureka:
+    enabled: false
+#名字随便指定
+CLOUD-PROVIDER2:
+  ribbon:
+    listOfServers: http://localhost:8080,http://localhost:8081,http://localhost:8083

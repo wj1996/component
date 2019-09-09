@@ -14,3 +14,16 @@ Ribbon负载均衡
 
 
     提供多个服务时，注意需要设置不一样的instance-id，设置相同的application.name
+
+    负载算法：
+        轮询（默认）
+
+    修改负载：
+        全局  见RestConfig配置
+        单个客户端
+            @RibbonClient(name = "CLOUD-PROVIDER" ,configuration = MyConfig.class)
+            配置类必须放在一个扫描不到的包
+            name指定应用
+    在服务的消费方获取服务提供方的具体信息
+        见ConsumerProductController中的
+    ribbon脱离Eureka使用

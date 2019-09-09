@@ -16,9 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/consumer2")
 public class ConsumerProductController {
-    public static final String PRODUCT_GET_URL = "http://CLOUD-PROVIDER/product/get/";
-    public static final String PRODUCT_LIST_URL="http://CLOUD-PROVIDER/product/list/";
-    public static final String PRODUCT_ADD_URL = "http://CLOUD-PROVIDER/product/add/";
+    public static final String PRODUCT_GET_URL = "http://CLOUD-PROVIDER2/product/get/";
+    public static final String PRODUCT_LIST_URL="http://CLOUD-PROVIDER2/product/list/";
+    public static final String PRODUCT_ADD_URL = "http://CLOUD-PROVIDER2/product/add/";
     @Resource
     private RestTemplate restTemplate;
 
@@ -43,7 +43,7 @@ public class ConsumerProductController {
 
     @RequestMapping("/product/list")
     public  Object listProduct() {
-        ServiceInstance serviceInstance = this.loadBalancerClient.choose("CLOUD-PROVIDER") ;
+        ServiceInstance serviceInstance = this.loadBalancerClient.choose("CLOUD-PROVIDER2") ;
         System.out.println(
                 "【*** ServiceInstance ***】host = " + serviceInstance.getHost()
                         + "、port = " + serviceInstance.getPort()
