@@ -1,5 +1,6 @@
 package com.wj.config;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -18,7 +19,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-//@MapperScan(basePackages = "com.wj.dao.users", sqlSessionFactoryRef = "test1SqlSessionFactory")
+@MapperScan(basePackages = "com.wj.dao.users", sqlSessionFactoryRef = "test1SqlSessionFactory")
 public class DataSource1Config {
 
     @Bean(name = "test1DataSource")
@@ -34,31 +35,39 @@ public class DataSource1Config {
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-//        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapping/users/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapping/users/*.xml"));
         return bean.getObject();
     }
 
-//    @Bean(name = "test1DataSource")
-//    @Primary
-//    public DataSource testDataSource(DBConfig1 config1) {
-//        MysqlXADataSource mysqlXADataSource=new MysqlXADataSource();
-//        mysqlXADataSource.setUrl(config1.getJdbcUrl());
-//        mysqlXADataSource.setPassword(config1.getPassword());
-//        mysqlXADataSource.setUser(config1.getUsername());
-//
-//        AtomikosDataSourceBean atomikosDataSourceBean=new AtomikosDataSourceBean();
-//        atomikosDataSourceBean.setXaDataSource(mysqlXADataSource);
-//        atomikosDataSourceBean.setUniqueResourceName("test1Datasource");
-//        return atomikosDataSourceBean;
-//
-//    }
+    /*
+    * 这样设置后需要集成DBConfig 自己设置提供
+    * */
+    @Bean(name = "test1DataSource")
+    @Primary
+    public DataSource testDataSource(DBConfig1 config1) {
+        MysqlXADataSource mysqlXADataSource=new MysqlXADataSource();
+        mysqlXADataSource.setUrl(config1.getJdbcUrl());
+        mysqlXADataSource.setPassword(config1.getPassword());
+        mysqlXADataSource.setUser(config1.getUsername());
+
+        AtomikosDataSourceBean atomikosDataSourceBean=new AtomikosDataSourceBean();
+        atomikosDataSourceBean.setXaDataSource(mysqlXADataSource);
+        atomikosDataSourceBean.setUniqueResourceName("test1Datasource");
+        return atomikosDataSourceBean;
+
+    }
 
 
-    @Bean(name = "test1TransactionManager")
+    /*
+    * 集成Atomikos事务后，这样配置事务管理器就没用了
+    * 需要设置其他的配置和
+    * */
+
+    /*@Bean(name = "test1TransactionManager")
     @Primary
     public DataSourceTransactionManager testTransactionManager(@Qualifier("test1DataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
-    }
+    }*/
 
     @Bean(name = "test1SqlSessionTemplate")
     @Primary

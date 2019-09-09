@@ -1,5 +1,6 @@
 package com.wj.config;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -22,6 +23,9 @@ import javax.sql.DataSource;
 public class DataSource2Config {
 
 
+    /*
+    * 设置下面的事务数据源后，不需要这个了
+    * */
     @Bean(name = "test2DataSource")
     @ConfigurationProperties(prefix = "spring.datasource.spring2")
     public DataSource testDataSource() {

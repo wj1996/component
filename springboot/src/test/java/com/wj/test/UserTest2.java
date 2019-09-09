@@ -35,12 +35,12 @@ public class UserTest2 {
     public void test() {
         Users user = new Users();
         user.setId(1);
-        user.setUsername("test");
+        user.setUsername("test2");
         user.setPasswd("123");
         Orders orders = new Orders();
         orders.setAccount(123);
         orders.setId(12);
-        orders.setName("test");
+        orders.setName("test2");
 
         orderService.addOrder(orders,user);
     }

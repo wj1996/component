@@ -21,9 +21,9 @@ public class OrderServiceImpl  implements IOrderService {
     private OrdersMapper ordersMapper;
 
     @Override
-//    @Transactional
+    @Transactional
     public void addOrder(Orders orders, Users users) {
-//        usersMapper.insertSelective(users);
+        usersMapper.insertSelective(users);
 //        int i = 10/0;
         ordersMapper.insertSelective(orders);
     }

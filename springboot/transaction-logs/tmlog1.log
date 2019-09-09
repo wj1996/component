@@ -1,0 +1,2 @@
+{"id":"10.0.0.1.tm156795128901600001","wasCommitted":true,"participants":[{"uri":"10.0.0.1.tm1","state":"COMMITTING","expires":1567951299200,"resourceName":"test1Datasource"},{"uri":"10.0.0.1.tm2","state":"COMMITTING","expires":1567951299200,"resourceName":"test2Datasource"}]}
+{"id":"10.0.0.1.tm156795128901600001","wasCommitted":true,"participants":[{"uri":"10.0.0.1.tm1","state":"TERMINATED","expires":1567951299320,"resourceName":"test1Datasource"},{"uri":"10.0.0.1.tm2","state":"TERMINATED","expires":1567951299320,"resourceName":"test2Datasource"}]}

@@ -1,0 +1,7 @@
+1.org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.wj.dao.orders.OrdersMapper.insert
+    在测试多数据源配置的时候，DataSource1Config和DataSource2Config类，启动时，发现执行测试类，UserTest2中的test方法，报这个错，
+     执行UsersMapper的没有问题，执行OrderMapper的有问题
+    原因：
+        我去除了App2和application.properties中的MapperScan，但是App3中还是有指定MapperScan的路径，导致了扫描时的报错，根本原因未
+        查明。
+2.说明了如果不使用Atomikos，多数据源的操作是有问题的，但是设置了@Transactional后,事务是生效的？？？？

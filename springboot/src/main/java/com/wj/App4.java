@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 * 这个注解就是@EnableAutoConfiguration和@ComponentScan的组合实现，再加上一些别的实现
 * 扫描包的路径就是当前类所在的路径下的所有包
 * */
-public class App4 extends SpringBootServletInitializer {
+public class App4  {
 
     public static void main(String[] args) {
         //启动类
@@ -19,8 +19,4 @@ public class App4 extends SpringBootServletInitializer {
     }
 
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(App4.class);
-    }
 }

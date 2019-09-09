@@ -123,6 +123,33 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
+
+        <!--
+            事务Atomikos
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jta-atomikos</artifactId>
+        </dependency>
+
+
+        <!--
+            java操作tomcat
+        -->
+        <!--Java语言操作tomcat -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>8.5.16</version>
+        </dependency>
+
+        <!-- tomcat对jsp支持 -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>8.5.16</version>
+        </dependency>
+
     </dependencies>
 
 
