@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-api" />
         <module name="cloud-consumer" />
+        <module name="cloud-consumer-feign" />
         <module name="cloud-consumer-ribbon" />
         <module name="cloud-eureka" />
         <module name="cloud-eureka2" />
@@ -16,6 +17,7 @@
         <module name="cloud-provider2" />
         <module name="cloud-provider3" />
         <module name="cloud-security" />
+        <module name="cloud-service" />
       </profile>
     </annotationProcessing>
   </component>

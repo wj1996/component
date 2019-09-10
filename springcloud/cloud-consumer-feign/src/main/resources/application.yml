@@ -1,0 +1,23 @@
+server:
+  port: 80
+#配置注册中心
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:wj@eureka:7001/eureka,http://admin:wj@eureka2:7002/eureka,http://admin:wj@eureka3:7003/eureka
+
+#对feign请求的数据进行压缩
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types:
+        - text/xml
+        - application/json
+        - application/xml
+      min-request-size: 2408
+logging:
+  level:
+    com.wj.service: DEBUG
+#增加日志的输出 针对feign来说，还需要其他配置 见FeignClientConfig的配置  （cloud-service）

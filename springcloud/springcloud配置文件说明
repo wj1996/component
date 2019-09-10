@@ -6,6 +6,19 @@
 Eureka注册中心
     Eureka高可用
     服务注册与发现
+
+
+
+    Eureka-server
+
+        服务注册
+        接收心跳
+        剔除服务
+        服务下线
+        集群同步
+            1.EurekaServer在启动过程中从其他的peer节点中拉取注册信息，并将这些服务实例注册到本地注册表中
+            2.EurekaServer每次对本地注册表进行操作时，同时会将这些操作同步到其他peer节点，达到数据椅子
+
 Ribbon负载均衡
     Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Netflix Ribbon实现。
     Ribbon只是一个工具类框架，它不像服务注册中心、配置中心、API网关那样需要独立部署
@@ -26,4 +39,11 @@ Ribbon负载均衡
             name指定应用
     在服务的消费方获取服务提供方的具体信息
         见ConsumerProductController中的
-    ribbon脱离Eureka使用
+    ribbon脱离Eureka使用 见 cloud-consumer-ribbon模块的设置
+    源码：
+
+Feign接口服务
+    提供了一种声明式的Web服务客户端定义的方式
+    SpringCloudFeign在NetFixFeign的基础上扩展了对SpringMVC注解的支持，在其实现下，我们只需创建一个接口并用注解的方式来配置它，即可完成对服务提供方的接口绑定。简化了SpringCloudRibbon自行封装服务调用客户端的开发量
+
+    feign = restTemplate + httphead + ribbon + eureka

@@ -1,0 +1,54 @@
+注解：annotation
+配置方式：
+    xml
+    注解
+        @Configuration
+        @Bean
+            默认单实例
+            和@Scope配合使用
+            导入第三方的类或包的组件，需要在IOC容器中使用
+        @ComponentScan
+            自定义扫描
+        @ComponentScans
+
+
+
+        @Controller
+        @Service
+        @Repository
+        @Component
+
+
+        @Scope
+            多实例  prototype
+                仅当Bean使用的时候才创建
+            单实例 singleton
+                容器创建的时候就创建了
+            request
+                主要针对web应用，一次请求一个实例
+            session
+                同一个session一个实例
+            global session
+        @Lazy
+            懒加载
+            主要针对单实例，启动的时候不加载，第一次使用的时候加载（这个地方需要保证线程安全，spring中如何保证懒加载过程中是线程安全的呢？？）
+
+        @Conditional条件注册bean
+
+        @Import 注册bean
+            1. 手动添加组件到IOC容器
+            2. 使用ImportSelector自定义返回组件
+            3. 使用ImportBeanDefinitionRegistrar返回自定义组件
+
+IOC容器
+
+
+
+FactoryBean和BeanFactory 区别？？？
+    可以将java实例bean通过FactoryBean注入到容器中
+    可以从BeanFactory中获取bean对象（实例化后的bean对象）
+
+
+
+
+

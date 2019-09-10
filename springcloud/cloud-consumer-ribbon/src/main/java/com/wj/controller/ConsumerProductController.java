@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -42,8 +43,9 @@ public class ConsumerProductController {
     }
 
     @RequestMapping("/product/list")
-    public  Object listProduct() {
+    public  Object listProduct() throws Exception{
         ServiceInstance serviceInstance = this.loadBalancerClient.choose("CLOUD-PROVIDER2") ;
+        String uri = String.format("http://%s:%s/product/list",serviceInstance.getHost(), serviceInstance.getPort());
         System.out.println(
                 "【*** ServiceInstance ***】host = " + serviceInstance.getHost()
                         + "、port = " + serviceInstance.getPort()
@@ -51,7 +53,9 @@ public class ConsumerProductController {
         /*
         * 使用认证的 使用exchange方法
         * */
-        List<Product> list = restTemplate.exchange(PRODUCT_LIST_URL,HttpMethod.GET,
+        System.out.println(uri);
+        URI u = new URI(uri);
+        List<Product> list = restTemplate.exchange(u,HttpMethod.GET,
                 new HttpEntity<Object>(httpHeaders), List.class).getBody();
         return  list;
     }
