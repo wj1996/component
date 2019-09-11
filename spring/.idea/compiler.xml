@@ -9,9 +9,5 @@
         <module name="spring-ioc" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring" target="1.5" />
-      <module name="spring-ioc" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
