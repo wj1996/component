@@ -9,6 +9,13 @@ Eureka注册中心
 
 
 
+    Eureka-client
+        1.读取配置
+           eureka-clientjar包里面的META-INF目录下面spring.factories里面配置了org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration,
+        2.拉取Server注册表的信息
+        3.向Sever注册自身
+        4.初始化心跳定时任务，缓存刷新等定时任务
+
     Eureka-server
 
         服务注册

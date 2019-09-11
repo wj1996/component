@@ -42,6 +42,41 @@
 Bean的生命周期
     创建》》》初始化》》》销毁
 
+    初始化与销毁1
+        init-method
+        destroy-method
+        见Bike类和MyConfig4
+    单实例
+    多实例
+
+    初始化与销毁2
+        1.实现InitializingBean接口的afterPropertiesSet()方法，当beanFactory创建好对象，且把bean所有属性设置好之后，会调用这个方法，
+        相当于初始化方法。
+        2.实现DisponsableBean的destroy()方法，当bean销毁时，会把单实例bean进行销毁。
+
+        见Bike类和MyConfig4
+    初始化与销毁3
+        可以使用JSR250规范定义的两个注解来实现
+        @PostConstruct：在bean创建完成，且属于服装款完成后进行初始化，属于JDK规范的注解
+        @PreDestroy:在bean将被移除之前进行通知，在容器销毁之前进行清理工作
+
+        JSR是JDK提供的一组规范
+
+        见Jeep类和MyConfig4
+    BeanPostProcessorsr
+        bean的后置处理器，在bean进行初始化之前调用进行拦截，在bean进行初始化前后进行一些处理工作，使用BeanPostProcessors如何控制bean的生命周期：
+        实现BeanPostProcessors的两个接口方法即可
+            1.postProcessBeforeInitialization()
+            2.postProcessAfterInitialization()
+
+            对init方法的前后进行增强
+
+
+        见MyBeanPostProcessor和Config4
+
+
+
+    @Autowired
 
 
 IOC容器
