@@ -39,10 +39,12 @@
             1. 手动添加组件到IOC容器
             2. 使用ImportSelector自定义返回组件
             3. 使用ImportBeanDefinitionRegistrar返回自定义组件
+Bean的生命周期
+    创建》》》初始化》》》销毁
+
+
 
 IOC容器
-
-
 
 FactoryBean和BeanFactory 区别？？？
     可以将java实例bean通过FactoryBean注入到容器中

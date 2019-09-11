@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d64de758-6ce6-4ce0-b74a-78b1f57d1927" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring/spring-ioc/src/test/java/annotation/Demo03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring/spring-ioc/src/test/java/annotation/Demo03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring/spring配置文件" beforeDir="false" afterPath="$PROJECT_DIR$/../spring/spring配置文件" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-consumer-ribbon/src/main/java/com/wj/controller/ConsumerProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-consumer-ribbon/src/main/java/com/wj/controller/ConsumerProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-consumer/src/main/java/com/wj/ConsumerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-consumer/src/main/java/com/wj/ConsumerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloud配置文件说明" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud配置文件说明" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/cloud-api/target/" />
@@ -34,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="342">
               <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
             </state>
           </provider>
@@ -51,9 +49,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-starter-netflix-eureka-client/2.0.0.RELEASE/spring-cloud-starter-netflix-eureka-client-2.0.0.RELEASE.jar!/META-INF/maven/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-194" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -68,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="589">
               <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
             </state>
           </provider>
@@ -228,10 +224,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-2568" />
-    <option name="y" value="-8" />
-    <option name="width" value="2064" />
-    <option name="height" value="1128" />
+    <option name="x" value="-2569" />
+    <option name="y" value="-9" />
+    <option name="width" value="2065" />
+    <option name="height" value="1129" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -239,7 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,6 +247,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,14 +395,16 @@
       <workItem from="1568078627565" duration="13914000" />
       <workItem from="1568099333796" duration="202000" />
       <workItem from="1568099601585" duration="3632000" />
+      <workItem from="1568180865396" duration="593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48600000" />
+    <option name="totallyTimeSpent" value="49193000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2568" y="-8" width="2064" height="1128" extended-state="1" />
+    <frame x="-2567" y="-7" width="1652" height="903" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -414,7 +412,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.13908274" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.14052698" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -829,6 +827,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE.jar!/org/springframework/cloud/netflix/ribbon/RibbonClientConfigurationRegistrar.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-starter-netflix-eureka-client/2.0.0.RELEASE/spring-cloud-starter-netflix-eureka-client-2.0.0.RELEASE.jar!/META-INF/maven/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE.jar!/META-INF/spring.factories">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="64" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cloud-consumer/src/main/java/com/wj/controller/ConsumerProductController2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -863,39 +892,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE.jar!/org/springframework/cloud/netflix/ribbon/RibbonClientConfigurationRegistrar.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-starter-netflix-eureka-client/2.0.0.RELEASE/spring-cloud-starter-netflix-eureka-client-2.0.0.RELEASE.jar!/META-INF/maven/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE.jar!/META-INF/spring.factories">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../bw/repo/org/springframework/cloud/spring-cloud-netflix-ribbon/2.0.0.RELEASE/spring-cloud-netflix-ribbon-2.0.0.RELEASE-sources.jar!/org/springframework/cloud/netflix/ribbon/RibbonClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
         </state>
       </provider>
     </entry>
