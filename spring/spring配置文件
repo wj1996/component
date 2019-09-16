@@ -74,10 +74,72 @@ Bean的生命周期
 
         见MyBeanPostProcessor和Config4
 
+        AbstractAutowireCapableBeanFactory
+            Object initializeBean(final String beanName, final Object bean, @Nullable RootBeanDefinition mbd)
+                wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
+                    调用ApplicationContextAwareProcessor的postProcessBeforeInitialization方法
+                        invokeAwareInterfaces(bean) 方法如下：
+                        根据bean实现不同的Aware接口，进行相关的注入，比如实现ApplicationContextAware，会将spring的容器上下文对象注入到当前对象，
+                        当前对象即可获取到当前的IOC容器对象。
+                        private void invokeAwareInterfaces(Object bean) {
+                        		if (bean instanceof Aware) {
+                        			if (bean instanceof EnvironmentAware) {
+                        				((EnvironmentAware) bean).setEnvironment(this.applicationContext.getEnvironment());
+                        			}
+                        			if (bean instanceof EmbeddedValueResolverAware) {
+                        				((EmbeddedValueResolverAware) bean).setEmbeddedValueResolver(this.embeddedValueResolver);
+                        			}
+                        			if (bean instanceof ResourceLoaderAware) {
+                        				((ResourceLoaderAware) bean).setResourceLoader(this.applicationContext);
+                        			}
+                        			if (bean instanceof ApplicationEventPublisherAware) {
+                        				((ApplicationEventPublisherAware) bean).setApplicationEventPublisher(this.applicationContext);
+                        			}
+                        			if (bean instanceof MessageSourceAware) {
+                        				((MessageSourceAware) bean).setMessageSource(this.applicationContext);
+                        			}
+                        			if (bean instanceof ApplicationContextAware) {
+                        				((ApplicationContextAware) bean).setApplicationContext(this.applicationContext);
+                        			}
+                        		}
+                        }
+                    见Plane
 
 
+    @Autowired》》》AutowiredAnnotationBeanPostProcessor
+
+
+
+    Spring底层对BeanPostProcessor的使用
+
+
+    @Value
+        见Bird类，MyConfig5,Demo05,my.properties
+    自动装配：
+        spring利用依赖注入（DI），完成对容器IOC的各个组件的依赖关系赋值
+    1.bean组件加载优先级
+    2.如果容器中存在两个ID相同的bean，会加载哪个bean呢？
+    3.如何指定装配组件id进行加载@Qualifier
+    4.容器加载不存在的bean会出现什么问题
+    5.@Primary注解bean首选如何使用
+    6.@Autowired @Resource 和@Inject的区别
     @Autowired
 
+    @Qualifier
+
+
+    @Resource jsr250
+    @Primary
+        针对@Autowired注解有效，对@Resource无效
+        @Resource和@Autowired都是先根据名称作为id去寻找注入的bean对象，如果么有，再去找同类型的对象,同类型的对象必须不能超过1个，如果超过1个，IOC将不会
+        知道到底要注入哪个对象，会报错，
+            org.springframework.beans.factory.NoUniqueBeanDefinitionException:
+            No qualifying bean of type 'com.wj.spring.annotation.cls2.MyService' available
+            : expected single matching bean but found 2: myService3,myService2
+    @Inject  第三方的包
+
+    见
+        Demo06,MyConfig6,MyService,MyController
 
 IOC容器
 

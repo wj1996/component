@@ -24,6 +24,14 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!--
+            使用@Inject注解
+        -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
     </dependencies>
 
 </project>
