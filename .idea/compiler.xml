@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="delayOrder" />
+        <module name="kafka" />
+        <module name="rocketmq" />
+        <module name="sotrePotal" />
+        <module name="springboot" />
+        <module name="springboot (1)" />
+        <module name="storeapi" />
+        <module name="storeServer" />
+        <module name="storeServerApi" />
+        <module name="storeSpi" />
+        <module name="zookeeper" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-api" target="1.5" />
+      <module name="springcloud" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
