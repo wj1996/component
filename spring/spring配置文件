@@ -148,6 +148,13 @@ Bean的生命周期
         见 Sun Moon Demo07
 
     自动装配Aware
+
+    常见XXXAware接口
+        ApplicationContextAware接口：获取IOC容器
+        BeanNameAware接口：获取bean信息
+        EmbeddedValueResolverAware接口：解析器（表达式及相关脚本解析）
+
+        见Light
 IOC容器
 
 FactoryBean和BeanFactory 区别？？？
@@ -157,5 +164,8 @@ FactoryBean和BeanFactory 区别？？？
 容器启动加载配置类----》refresh()-----》finishBeanFactoryInitialization()---》getBean()-----》doCreateBean()-----》
 beanWrapper（对象的创建）----》populated（属性赋值）----》initialize()-----》processors-----》aware
 
+
+AOP
+    面向切面编程（底层就是动态代理）
 
 
