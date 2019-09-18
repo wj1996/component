@@ -167,5 +167,34 @@ beanWrapper（对象的创建）----》populated（属性赋值）----》initial
 
 AOP
     面向切面编程（底层就是动态代理）
+    见MyConfig7 Calculator LogAspects
+
+    JDK:InvocationHandler Proxy
+    CGLIB：（继承）
+
+    @EnableAspectJAutoProxy注解开启AOP
+        引入组件AspectJAutoProxyRegistrar
+
+
+        核心是注册
+        AnnotationAwareAspectJAutoProxyCreator
+            AspectJAwareAdvisorAutoProxyCreator
+                AbstractAdvisorAutoProxyCreator
+                    AbstractAutoProxyCreator
+                     extends ProxyProcessorSupport
+                     implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware
+                     >>>>关注后置处理器（bean初始化前后），自动装配beanFactory
+
+        SmartInstantiationAwareBeanPostProcessor：bean的后置处理器
+        BeanFactoryAware：能把beanFactory传进来
+    关注AnnotationAwareAspectJAutoProxyCreator如何创建》》》》》》》》》》》
+        Calculator----》div 拦截
+
+        createBean()----->
+
+
+    invokeBeanFactoryPostProcessors
+    registerBeanPostProcessors(beanFactory); 拦截相关的bean在这里创建
+
 
 
