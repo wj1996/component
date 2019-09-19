@@ -13,6 +13,7 @@ public class OrderService {
     @Transactional
     public void insert() {
         orderDao.insert();
+        System.out.println("操作完成");
         int a = 1 / 0;
     }
 }

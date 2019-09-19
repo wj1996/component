@@ -222,6 +222,12 @@ AOP
         1.注册
         2.
 
+    见MyConfig8和transaction下的内容，Demo10
 
+扩展组件
+    BeanFactoryPostProcessor：beanFactory的后置处理器
+        可能会跟BeanPostProcessor混淆
+            BeanPostProcessor 是对Bean（init）初始化的时候的前后增强
 
-
+    BeanDefinitionRegistryPostProcessor：bean定义后置处理器
+        使用RootBeanDefinition定义 传入Xxx.class

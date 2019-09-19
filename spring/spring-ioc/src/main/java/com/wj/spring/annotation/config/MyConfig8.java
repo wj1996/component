@@ -17,6 +17,27 @@ import java.beans.PropertyVetoException;
  * InfrastructureAdvisorAutoProxyCreator
  *  1.注册
  *  2.利用后置处理器机制在创建以后，返回一个代理对象（增强），代理对象执行方法时，利用拦截器进行调用
+ *
+ *  AnnotationTransactionAttributeSource  事务管理器要用事务注解的信息，使用这个类解析事务注解
+ *  TransactionInterceptor 保存事务属性信息，事务管理器 MethodInterceptor
+ *      invokeWithinTransaction(invocation.getMethod(), targetClass, invocation::proceed); 》》》》》TransactionAspectSupport
+ *
+ *  当执行目标方法时：
+ *      执行拦截器链
+ *      事务拦截器：
+ *      1.先获取事务相关属性
+ *          TransactionAttributeSource tas = getTransactionAttributeSource();
+ *      2.获取PlatformTransactionManager事务管理器，直接到容器中获取实例
+ *          final PlatformTransactionManager tm = determineTransactionManager(txAttr);
+ *      执行目标方法
+ *          retVal = invocation.proceedWithInvocation();
+ *      如果异常，利用事务管理器进行回滚操作
+ *          completeTransactionAfterThrowing(txInfo, ex);
+ *      如果正常，利用事务管理器进行提交
+ *          commitTransactionAfterReturning(txInfo);
+ *  事务管理器：
+ *
+ *
  */
 
 
