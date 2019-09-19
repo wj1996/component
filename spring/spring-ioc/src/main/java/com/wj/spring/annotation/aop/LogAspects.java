@@ -47,7 +47,7 @@ public class LogAspects {
         System.out.println("afterThrowing");
     }
 
-    @Around("execution(public int com.wj.spring.annotation.aop.Calculator.div(int,int))")
+   /* @Around("execution(public int com.wj.spring.annotation.aop.Calculator.div(int,int))")
     public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("执行之前");
         Object obj = null;
@@ -60,7 +60,7 @@ public class LogAspects {
         System.out.println("执行之后");
 
         return obj;
-    }
+    }*/
 
 
 }

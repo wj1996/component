@@ -182,10 +182,13 @@ AOP
                 AbstractAdvisorAutoProxyCreator
                     AbstractAutoProxyCreator
                      extends ProxyProcessorSupport
-                     implements SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware
+                     implements
+                        SmartInstantiationAwareBeanPostProcessor, BeanFactoryAware
                      >>>>关注后置处理器（bean初始化前后），自动装配beanFactory
 
         SmartInstantiationAwareBeanPostProcessor：bean的后置处理器
+            extends InstantiationAwareBeanPostProcessor
+                   extends BeanPostProcessor
         BeanFactoryAware：能把beanFactory传进来
     关注AnnotationAwareAspectJAutoProxyCreator如何创建》》》》》》》》》》》
         Calculator----》div 拦截
@@ -195,6 +198,30 @@ AOP
 
     invokeBeanFactoryPostProcessors
     registerBeanPostProcessors(beanFactory); 拦截相关的bean在这里创建
+
+
+    aop调用：
+        CglibAopProxy  intercept方法
+        获取拦截器链  MethodInterceptor
+        链式调用通知方法
+声明式事务
+
+    @Transactional
+
+    事务管理器
+        transactionManager.beginTransaction();
+
+
+        throwing ----->rollback
+
+        commit
+
+    @EnableTransactionManagement注解开启事务管理器
+    注册AutoProxyRegistrar和ProxyTransactionManagementConfiguration
+    核心组件InfrastructureAdvisorAutoProxyCreator注册
+        1.注册
+        2.
+
 
 
 

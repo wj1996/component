@@ -11,7 +11,7 @@ public class Demo09 {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig7.class);
         Calculator calculator = applicationContext.getBean(Calculator.class);
-        calculator.div(1,0);
+        calculator.div(1,1);
         applicationContext.close();
     }
 }

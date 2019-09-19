@@ -19,5 +19,7 @@ public class Demo07 {
         System.out.println(sun + "" + (sun.getMoon() == moon));
 
         applicationContext.close();
+
+
     }
 }
