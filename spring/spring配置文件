@@ -231,3 +231,28 @@ AOP
 
     BeanDefinitionRegistryPostProcessor：bean定义后置处理器
         使用RootBeanDefinition定义 传入Xxx.class
+
+IOC源码
+    AnnotationConfigApplicationContext extends GenericApplicationContext implements AnnotationConfigRegistry
+    refresh()
+        1.prepareRefresh()
+            initPropertySources();初始化一些属性设置，子类自定义个性化的属性设置
+            getEnvironment().validateRequiredProperties();  检验属性的合法性等
+            this.earlyApplicationEvents = new LinkedHashSet<>(); 保存容器中的一些早期的事件
+        2.obtainFreshBeanFactory();  获取beanFactory实例
+            refreshBeanFactory();  刷新并获取beanFactory
+                GenericApplicationContext refreshBeanFactory();
+                    这个类中定义了一个属性：private final DefaultListableBeanFactory beanFactory;
+                在创建AnnotationConfigApplicationContext的时候，会创建父类GenericApplicationContext，它的构造中会去将这个beanFactory进行赋值
+                    this.beanFactory = new DefaultListableBeanFactory(); （无参构造中执行的操作）
+            getBeanFactory();   获取生成的beanFactory
+        3.prepareBeanFactory(beanFactory); beanFactory预准备工作
+        4.postProcessBeanFactory(beanFactory);  子类通过重写这个方法来自定义实现
+        5.invokeBeanFactoryPostProcessors(beanFactory);
+        6.registerBeanPostProcessors(beanFactory);
+        7.initMessageSource();  国际化
+        8.initApplicationEventMulticaster();
+        9.onRefresh();  留给子容器（子类），可以重写这个方法
+        10.registerListeners();
+        11.finishBeanFactoryInitialization(beanFactory);
+        12.finishRefresh();
