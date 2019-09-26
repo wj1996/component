@@ -8,8 +8,12 @@
     </select>
 
 
-    <!--useGeneratedKeys="true" keyProperty="id"-->
-    <insert id="batchInsert" useGeneratedKeys="true" >
+    <!--useGeneratedKeys="true" keyProperty="id"
+
+        如果想将插入后的每条记录的ID回设置到user中，需要设置KeyProperty="id" 这个属性
+        这样设置后 ，通过debug运行，可以观测到ID会回设置到user中
+    -->
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id">
         insert into user (username,passwd)
         values
         <foreach collection="list" separator="," item="user">
