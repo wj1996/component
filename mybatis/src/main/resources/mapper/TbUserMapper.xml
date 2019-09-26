@@ -6,4 +6,18 @@
         select id,username,passwd from user
         where id = #{id}
     </select>
+
+
+    <!--useGeneratedKeys="true" keyProperty="id"-->
+    <insert id="batchInsert" useGeneratedKeys="true" >
+        insert into user (username,passwd)
+        values
+        <foreach collection="list" separator="," item="user">
+            (
+            #{user.username,jdbcType=VARCHAR},
+            #{user.passwd,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
 </mapper>

@@ -10,5 +10,6 @@ public interface TbUserMapper {
     List<User> selectByPrimaryKey(Integer id);
 
 
+    int batchInsert(List<User> list);
 
 }

@@ -6,9 +6,14 @@
 
 
 
-    <!--mybatis集成spring-->
-
+    <!--mybatis集成spring，不需要mybatis的配置映射文件-->
+   <!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" />
+    </bean>-->
     <!--1. 配置-->
+
+
+
 
 
 
