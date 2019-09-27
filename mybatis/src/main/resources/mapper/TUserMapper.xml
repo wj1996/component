@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wj.mapper.TUserMapper">
+
+
+
+    <!--缓存-->
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+  <!--
+    关联查询 1对1 嵌套结果
+
+    这种查询方式，不管你是否需要某些数据，都是一次查询出来
+    数据量多，需要内存，消耗CPU，序列化，发序列化都很消耗性能，占用网络带宽
+
+    一条，几十条，上百条数据可能微乎其微，但是如果上万条，上百万条数据，所带来的影响就不小了。
+  -->
+  <select id="selectUserPosition1" resultMap="userAndPosition1">
+    select
+        a.id,
+        a.user_name,
+        a.real_name,
+        a.sex,
+        a.mobile,
+        a.email,
+        a.note,
+        b.id post_id,
+        b.post_name,
+        b.note post_note
+      from t_user a,
+            t_position b
+      where a.position_id = b.id;
+  </select>
+
+
+    <!--
+        一对一
+        嵌套查询
+    -->
+    <select id="selectUserPosition2" resultMap="userAndPosition2">
+        select
+		a.id,
+		a.user_name,
+		a.real_name,
+		a.sex,
+		a.mobile,
+		a.position_id
+		from t_user a
+    </select>
+
+
+
+
+    <resultMap type="TUser" id="userRoleInfo" extends="BaseResultMap">
+        <collection property="roles" ofType="TRole" columnPrefix="role_">
+            <result column="id" property="id" />
+            <result column="Name" property="roleName" />
+            <result column="note" property="note" />
+        </collection>
+    </resultMap>
+
+    <select id="selectUserRole" resultMap="userRoleInfo">
+        select a.id,
+		      a.user_name,
+		      a.real_name,
+		      a.sex,
+		      a.mobile,
+		      a.note,
+		      b.role_id,
+		      c.role_name,
+		      c.note role_note
+		from t_user a,
+		     t_user_role b,
+		     t_role c
+		where a.id = b.user_id AND
+		      b.role_id = c.id
+    </select>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+
+      from t_user where id = #{id};
+
+    </select>
+
+    <select id="selectByEmailAndSex1" resultMap="BaseResultMap"
+            parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from t_user a
+        where a.email like CONCAT('%', #{email}, '%') and
+        a.sex =
+        #{sex}
+    </select>
+
+    <select id="selectByEmailAndSex2" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user a
+        where a.email like CONCAT('%', #{email}, '%') and
+        a.sex =
+        #{sex}
+    </select>
+
+    <!--
+        discriminator使用
+    -->
+    <resultMap id="userAndHealthReport" extends="BaseResultMap" type="TUser">
+
+        <discriminator column="sex"  javaType="int">
+            <case value="1" resultMap="userAndHealthReportMale"/>
+            <case value="2" resultMap="userAndHealthReportFemale"/>
+        </discriminator>
+    </resultMap>
+
+    <select id="selectUserHealthReport" resultMap="userAndHealthReport">
+        select
+        <include refid="Base_Column_List" />
+        from t_user a
+    </select>
+
+    <sql id="Base_Column_List">
+		id, user_name, real_name, sex, mobile, email, note,
+		position_id
+	</sql>
+
+    <resultMap id="userAndHealthReportMale" extends="userAndHealthReport" type="TUser">
+        <collection property="healthReports" column="id"
+                    select= "com.wj.mapper.THealthReportMaleMapper.selectByUserId"></collection>
+    </resultMap>
+
+    <resultMap id="userAndHealthReportFemale" extends="userAndHealthReport" type="TUser">
+        <collection property="healthReports" column="id"
+                    select= "com.wj.mapper.THealthReportFemaleMapper.selectByUserId"></collection>
+    </resultMap>
+
+
+
+  <resultMap id="BaseResultMap" type="TUser">
+    <id column="id" property="id" />
+    <result column="user_name" property="userName" />
+    <result column="real_name" property="realName" />
+    <result column="sex" property="sex" />
+    <result column="mobile" property="mobile" />
+    <result column="email" property="email" />
+    <result column="note" property="note" />
+  </resultMap>
+
+
+  <resultMap id="userAndPosition1" extends="BaseResultMap" type="TUser">
+      <!--定义关联属性 这个字段跟model对象中的定义值保持一致
+
+
+      -->
+      <association property="position" javaType="TPosition" columnPrefix="post_">
+        <id column="id" property="id" />
+        <id column="name" property="postName" />
+        <id column="note" property="note" />
+      </association>
+  </resultMap>
+
+
+    <resultMap id="userAndPosition2" extends="BaseResultMap" type="TUser">
+        <!--
+           fetchType="lazy"
+           针对互联网的大数据量 高并发
+           尽量单表查询 用什么查什么
+        -->
+        <association property="position"  fetchType="lazy"  column="position_id" select="com.wj.mapper.TPositionMapper.selectByPrimaryKey" />
+    </resultMap>
+
+
+
+
+</mapper>

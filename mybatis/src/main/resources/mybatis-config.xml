@@ -4,6 +4,21 @@
 
 
 <configuration>
+
+
+    <settings>
+        <!--
+            对任何方法的调用 都会调用该方法的完整加载 如果想让设置的fetchType="lazy"生效，需要设置这个属性为false
+            默认为true
+        -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <!--别名定义-->
+    <typeAliases>
+        <package name="com.wj.model" />
+    </typeAliases>
+
     <!--环境配置，连接的数据库，这里使用的是MySQL-->
     <environments default="mysql">
         <environment id="mysql">
@@ -22,6 +37,10 @@
         <mapper resource="mapper/TbUserMapper.xml" />
        <!-- <package name="com.wj.mapper"></package>
         <package name="com.wj.pojo"></package>-->
+        <mapper resource="mapper/TUserMapper.xml" />
+        <mapper resource="mapper/TPositionMapper.xml" />
+        <mapper resource="mapper/THealthReportFemaleMapper.xml" />
+        <mapper resource="mapper/THealthReportMaleMapper.xml" />
     </mappers>
 </configuration>
 
