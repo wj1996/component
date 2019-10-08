@@ -168,3 +168,27 @@
         数据读写阶段
             通过SqlSession完成SQL的解析，参数的映射，SQL的执行，结果的解析过程。
 
+    mybatis的初始化
+        mybatis.config.xml     XMLConfigBuilder
+
+        Mybatis映射器
+        *mapper.java  *mapper.xml   ---->>>>> XMLMapperBuilder   XMLStatementBuilder
+
+        Configuration
+
+        映射器的关键类
+            Configuration ：
+                Mybatis启动初始化的核心就是将所有xml配置文件信息加载到Configuration对象
+                中， Configuration是单例的，生命周期是应用级的；
+            MapperRegistry：
+                mapper接口动态代理工厂类的注册中心。在MyBatis中，通过mapperProxy实现
+                InvocationHandler接口，MapperProxyFactory用于生成动态代理的实例对象；
+            ResultMap：
+                用于解析mapper.xml文件中的resultMap节点，使用ResultMapping来封装id，result等
+                子元素；
+            MappedStatement：
+                用于存储mapper.xml文件中的select、insert、update和delete节点，同时还包
+            含了这些节点的很多重要属性；
+            SqlSource：
+                mapper.xml文件中的sql语句会被解析成SqlSource对象，经过解析SqlSource包含的语
+                句最终仅仅包含？占位符，可以直接提交给数据库执行；

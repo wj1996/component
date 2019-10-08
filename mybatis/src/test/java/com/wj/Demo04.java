@@ -24,5 +24,18 @@ public class Demo04 {
         TUser user = sqlSession.selectOne("com.wj.mapper.TUserMapper.selectByPrimaryKey", 1);
         System.out.println(user);
 
+
+
+    }
+
+    /**
+     * 源码解析
+     * @throws Exception
+     */
+    @Test
+    public void test2() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        System.out.println(1);
     }
 }

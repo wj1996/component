@@ -465,3 +465,51 @@
 2019-10-02 13:27:48.720 [ main ] - [ DEBUG ] [ com.wj.mapper.TUserMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, user_name, real_name, sex, mobile, email, note, position_id from t_user where id = ?; 
 2019-10-02 13:27:48.754 [ main ] - [ DEBUG ] [ com.wj.mapper.TUserMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
 2019-10-02 13:27:48.771 [ main ] - [ DEBUG ] [ com.wj.mapper.TUserMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-10-08 16:03:17.142 [ main ] - [ DEBUG ] [ org.apache.ibatis.logging.LogFactory : 135 ] - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2019-10-08 16:03:29.196 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.VFS : 111 ] - Class not found: org.jboss.vfs.VFS
+2019-10-08 16:03:29.197 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.JBoss6VFS : 142 ] - JBoss 6 VFS API is not available in this environment.
+2019-10-08 16:03:29.205 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.VFS : 111 ] - Class not found: org.jboss.vfs.VirtualFile
+2019-10-08 16:03:29.209 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.VFS : 63 ] - VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+2019-10-08 16:03:29.212 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.VFS : 77 ] - Using VFS adapter org.apache.ibatis.io.DefaultVFS
+2019-10-08 16:03:29.215 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model
+2019-10-08 16:03:29.218 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model
+2019-10-08 16:03:29.754 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: HealthReport.class
+2019-10-08 16:03:29.757 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: THealthReportFemale.class
+2019-10-08 16:03:29.759 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: THealthReportMale.class
+2019-10-08 16:03:29.761 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: TPosition.class
+2019-10-08 16:03:29.764 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: TRole.class
+2019-10-08 16:03:29.766 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: TUser.class
+2019-10-08 16:03:29.768 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: User.class
+2019-10-08 16:03:29.771 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 113 ] - Listing file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model
+2019-10-08 16:03:29.772 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/HealthReport.class
+2019-10-08 16:03:29.773 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/HealthReport.class
+2019-10-08 16:03:29.776 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 
+2019-10-08 16:03:29.779 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/THealthReportFemale.class
+2019-10-08 16:03:29.781 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/THealthReportFemale.class
+2019-10-08 16:03:29.785 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 �
+2019-10-08 16:03:29.788 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/THealthReportMale.class
+2019-10-08 16:03:29.789 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/THealthReportMale.class
+2019-10-08 16:03:29.794 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 |
+2019-10-08 16:03:29.796 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TPosition.class
+2019-10-08 16:03:29.797 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TPosition.class
+2019-10-08 16:03:29.800 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 B
+2019-10-08 16:03:29.803 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TRole.class
+2019-10-08 16:03:29.805 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TRole.class
+2019-10-08 16:03:29.808 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 \
+2019-10-08 16:03:29.810 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TUser.class
+2019-10-08 16:03:29.812 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/TUser.class
+2019-10-08 16:03:29.816 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 �
+2019-10-08 16:03:29.819 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 222 ] - Find JAR URL: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/User.class
+2019-10-08 16:03:29.820 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 248 ] - Not a JAR: file:/D:/develop/ws/component/component/mybatis/target/classes/com/wj/model/User.class
+2019-10-08 16:03:29.823 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.DefaultVFS : 102 ] - Reader entry: ����   1 ;
+2019-10-08 16:03:29.825 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.HealthReport matches criteria [is assignable to Object]
+2019-10-08 16:03:29.828 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.THealthReportFemale matches criteria [is assignable to Object]
+2019-10-08 16:03:29.831 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.THealthReportMale matches criteria [is assignable to Object]
+2019-10-08 16:03:29.833 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.TPosition matches criteria [is assignable to Object]
+2019-10-08 16:03:29.836 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.TRole matches criteria [is assignable to Object]
+2019-10-08 16:03:29.838 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.TUser matches criteria [is assignable to Object]
+2019-10-08 16:03:29.841 [ main ] - [ DEBUG ] [ org.apache.ibatis.io.ResolverUtil : 256 ] - Checking to see if class com.wj.model.User matches criteria [is assignable to Object]
+2019-10-08 16:03:32.381 [ main ] - [ DEBUG ] [ o.apache.ibatis.datasource.pooled.PooledDataSource : 335 ] - PooledDataSource forcefully closed/removed all connections.
+2019-10-08 16:03:32.382 [ main ] - [ DEBUG ] [ o.apache.ibatis.datasource.pooled.PooledDataSource : 335 ] - PooledDataSource forcefully closed/removed all connections.
+2019-10-08 16:03:32.383 [ main ] - [ DEBUG ] [ o.apache.ibatis.datasource.pooled.PooledDataSource : 335 ] - PooledDataSource forcefully closed/removed all connections.
+2019-10-08 16:03:32.385 [ main ] - [ DEBUG ] [ o.apache.ibatis.datasource.pooled.PooledDataSource : 335 ] - PooledDataSource forcefully closed/removed all connections.
