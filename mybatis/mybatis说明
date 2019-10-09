@@ -156,7 +156,23 @@
                 反射操作所需要的类元信息；
             ObjectWrapper：对对象的包装，抽象了对象的属性信息，他定义了一系列查询对象属性信息的方法，以及更 新属性的方法；
             ObjectWrapperFactory： ObjectWrapper 的工程类，用于创建ObjectWrapper ；
+    binding模块源码分析
+        为什么使用mapper接口就能操作数据库？？？？？？？
+            配置文件解读+动态代理的增强
 
+            MapperRegistry ： mapper接口和对应的代理对象工厂的注册中心；
+            MapperProxyFactory：用于生成mapper接口动态代理的实例对象；
+            MapperProxy：实现了InvocationHandler接口，它是增强mapper接口的实现；
+            MapperMethod：封装了Mapper接口中对应方法的信息，以及对应的sql语句的信息；它是mapper接口与映射配置文件中sql语句的桥梁；
+
+            DefaultSqlSession
+                getMapper(Class<T> type);》》》》》》
+                     return configuration.<T>getMapper(type, this);
+
+            Configuration
+                onfiguration.<T>getMapper(type, this);》》》》》
+                    //从mapperRegistry中获取代理类
+                    return mapperRegistry.getMapper(type, sqlSession);
 
     mybatis核心流程
         初始化阶段
@@ -193,7 +209,132 @@
                 mapper.xml文件中的sql语句会被解析成SqlSource对象，经过解析SqlSource包含的语
                 句最终仅仅包含？占位符，可以直接提交给数据库执行；
 
+        SqlSession是MyBaits对外提供的最关键的核心接口，通过它可以执行数据库读写命令、获取映射器、管 理事务等；
 
+    Executor组件分析
+
+        二级缓存使用
+            CachingExecutor
+                query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql)》》》
+                    //去获取二级缓存
+                    Cache cache = ms.getCache();
+                    if (cache != null) {   //如果二级缓存不为空
+                      flushCacheIfRequired(ms);
+                      if (ms.isUseCache() && resultHandler == null) {
+                        ensureNoOutParams(ms, boundSql);
+                        @SuppressWarnings("unchecked")
+                        List<E> list = (List<E>) tcm.getObject(cache, key);
+                        if (list == null) {
+                          //二级缓存为空，才会调用BaseExecutor.query  下面的方法
+                          list = delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+                          tcm.putObject(cache, key, list); // issue #578 and #116
+                        }
+                        return list;
+                      }
+                    }
+                    return delegate.<E> query(ms, parameterObject, rowBounds, resultHandler, key, boundSql);
+        BaseExecutor实现Executor接口，使用模板方法设计模式
+            query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql)》》》》
+                ErrorContext.instance().resource(ms.getResource()).activity("executing a query").object(ms.getId());
+                if (closed) {  //检查当前executor是否关闭
+                  throw new ExecutorException("Executor was closed.");
+                }
+                if (queryStack == 0 && ms.isFlushCacheRequired()) { //非嵌套查询，并且flushCache配置为true，则需要清空一级缓存
+                  clearLocalCache();
+                }
+                List<E> list;
+                try {
+                  queryStack++; //嵌套查询层次+1
+                  list = resultHandler == null ? (List<E>) localCache.getObject(key) : null; //从已有缓存中查询
+                  if (list != null) {
+                    //针对调用存储过程的结果处理
+                    handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
+                  } else {
+                    //缓存未命中，从数据库加载数据（真实交互数据库的方法）
+                    list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
+                  }
+                } finally {
+                  queryStack--;
+                }
+                if (queryStack == 0) {
+                  for (DeferredLoad deferredLoad : deferredLoads) {
+                    deferredLoad.load();
+                  }
+                  // issue #601
+                  deferredLoads.clear();
+                  //如果当前SQL的一级缓存配置为STATEMENT，查询完即清空一级缓存
+                  if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
+                    // issue #482
+                    clearLocalCache();
+                  }
+                }
+                return list;
+            queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql); 》》》》》》》》
+
+                List<E> list;
+                localCache.putObject(key, EXECUTION_PLACEHOLDER); //从缓存中添加占位符
+                try {
+                  //调用抽象方法doQuery,方法查询数据库并返回结果，可选的实现包括，simple，reuse，batch
+                  //此处使用的就是模板方法的设计模式
+                  list = doQuery(ms, parameter, rowBounds, resultHandler, boundSql);
+                } finally {
+                  localCache.removeObject(key); //从缓存中删除占位符
+                }
+                localCache.putObject(key, list); //将真正的结果对象添加到一级缓存
+                if (ms.getStatementType() == StatementType.CALLABLE) { //如果是调用存储过程
+                  localOutputParameterCache.putObject(key, parameter); //缓存输出类型结果参数
+                }
+                return list;
+            doQuery的SimpleExecutor的实现》》》》》》》
+                Statement stmt = null;
+                try {
+                  Configuration configuration = ms.getConfiguration();
+                  //创建StatementHandler对象
+                  StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+                  //创建Statement对象 方法下面进行说明
+                  stmt = prepareStatement(handler, ms.getStatementLog());
+                  return handler.<E>query(stmt, resultHandler);
+                } finally {
+                  closeStatement(stmt);
+                }
+            prepareStatement(handler, ms.getStatementLog());  》》》》
+                Statement stmt;
+                //获取Connection对象的动态代理，增加日志能力
+                Connection connection = getConnection(statementLog);
+                //通过不同的StatementHandler，利用connection创建 Statement
+                stmt = handler.prepare(connection, transaction.getTimeout());
+                //处理占位符
+                handler.parameterize(stmt);
+                return stmt;
+            handler.prepare(connection, transaction.getTimeout());》》》》
+                ErrorContext.instance().sql(boundSql.getSql());
+                Statement statement = null;
+                try {
+                  statement = instantiateStatement(connection); //模板设计模式
+                  setStatementTimeout(statement, transactionTimeout);
+                  setFetchSize(statement);
+                  return statement;
+                } catch (SQLException e) {
+                  closeStatement(statement);
+                  throw e;
+                } catch (Exception e) {
+                  closeStatement(statement);
+                  throw new ExecutorException("Error preparing statement.  Cause: " + e, e);
+                }
+        Executor三个重要小弟
+            通过对SimpleExecutor doQuery()方法的解读发现，Executor是个指挥官，它在调度三个小弟工作：
+                StatementHandler：它的作用是使用数据库的Statement或PrepareStatement执行操作，启承上启下作用；
+                ParameterHandler：对预编译的SQL语句进行参数设置，SQL语句中的的占位符“？”都对应BoundSql.parameterMappings
+                    集合中的一个元素，在该对象中记录了对应的参数名称以及该参数的相关属性
+                ResultSetHandler：对数据库返回的结果集（ResultSet）进行封装，返回用户指定的实体类型；
+        StatementHandler
+             StatementHandler完成Mybatis最核心的工作，也是Executor实现的基础；功能包括：创建statement对象，
+                为sql语句绑定参数，执行增删改查等SQL语句、将结果映射集进行转化；
+             BaseStatementHandler：所有子类的抽象 父类，定义了初始化statement的操作顺序， 由子类实现具体的实例化不同的statement （模板模式）；
+             RoutingStatementHandler：Excutor组件 真正实例化的子类，使用静态代理模式， 根据上下文决定创建哪个具体实体类；
+             SimpleStatmentHandler ：使用statement 对象访问数据库，无须参数化；
+             PreparedStatmentHandler ：使用预编译 PrepareStatement对象访问数据库；
+             CallableStatmentHandler ：调用存储过程；
 
     源码解析
 
@@ -272,10 +413,47 @@
                           String eviction = context.getStringAttribute("eviction", "LRU");
                           //根据eviction属性，找到装饰器
                           Class<? extends Cache> evictionClass = typeAliasRegistry.resolveAlias(eviction);
-                          //读取
+                          //读取flushInterval属性，即缓存的刷新周期
                           Long flushInterval = context.getLongAttribute("flushInterval");
+                          //读取size属性，即缓存的容量大小
                           Integer size = context.getIntAttribute("size");
+                          //读取readOnly属性，判断是否只读
                           boolean readWrite = !context.getBooleanAttribute("readOnly", false);
+                          //读取blocking属性，即缓存是否阻塞
                           boolean blocking = context.getBooleanAttribute("blocking", false);
                           Properties props = context.getChildrenAsProperties();
+                          //通过builderAssistant创建缓存对象，并添加至configuration
                           builderAssistant.useNewCache(typeClass, evictionClass, flushInterval, size, readWrite, blocking, props);
+                    builderAssistant.useNewCache(typeClass, evictionClass, flushInterval, size, readWrite, blocking, props); 流程》》》》
+                        //经典的建造者模式，创建一个cache对象
+                        Cache cache = new CacheBuilder(currentNamespace)
+                            .implementation(valueOrDefault(typeClass, PerpetualCache.class))
+                            .addDecorator(valueOrDefault(evictionClass, LruCache.class))
+                            .clearInterval(flushInterval)
+                            .size(size)
+                            .readWrite(readWrite)
+                            .blocking(blocking)
+                            .properties(props)
+                            .build();
+                        //将缓存添加至configuration，注意二级缓存以命名空间为单位进行划分
+                        configuration.addCache(cache);
+                        currentCache = cache;
+                        return cache;
+                    resultMapElements(context.evalNodes("/mapper/resultMap")); 流程》》》》》
+                        resultMapElement(resultMapNode);
+
+                        对应的数据结构：ResultMapping
+                    buildStatementFromContext(context.evalNodes("select|insert|update|delete")); 流程》》》》
+                        if (configuration.getDatabaseId() != null) {
+                          buildStatementFromContext(list, configuration.getDatabaseId());
+                        }
+                        buildStatementFromContext(list, null);
+                    buildStatementFromContext(list, null); 流程》》》》
+                       statementParser.parseStatementNode();
+                XMLStatementBuilder
+                    parseStatementNode（）》》》》》流程
+
+
+
+
+                    对应数据结构：MappedStatement

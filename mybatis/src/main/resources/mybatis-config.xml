@@ -37,10 +37,10 @@
         <mapper resource="mapper/TbUserMapper.xml" />
        <!-- <package name="com.wj.mapper"></package>
         <package name="com.wj.pojo"></package>-->
-        <mapper resource="mapper/TUserMapper.xml" />
+        <!--<mapper resource="mapper/TUserMapper.xml" />
         <mapper resource="mapper/TPositionMapper.xml" />
         <mapper resource="mapper/THealthReportFemaleMapper.xml" />
-        <mapper resource="mapper/THealthReportMaleMapper.xml" />
+        <mapper resource="mapper/THealthReportMaleMapper.xml" />-->
     </mappers>
 </configuration>
 
