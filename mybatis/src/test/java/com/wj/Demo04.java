@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.*;
 
 /**
  * 源码分析
@@ -86,6 +87,26 @@ public class Demo04 {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+
+    @Test
+    public void jdbcDemo() throws ClassNotFoundException, SQLException {
+        //加载数据库驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        //创建数据库连接
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/spring", "root", "root");
+        //创建PrepareStatment
+        Statement stmt;
+        stmt = connection.prepareStatement("select * from user where id = ?");
+        //设置参数(占位符处理)
+        ((PreparedStatement) stmt).setInt(1,1);
+        //执行查询
+        ResultSet resultSet = ((PreparedStatement) stmt).executeQuery();
+        //结果处理
+        while (resultSet.next()) {
+            System.out.println(resultSet.getInt(1) + "," + resultSet.getString(2) + "," + resultSet.getString(3));
         }
     }
 }
