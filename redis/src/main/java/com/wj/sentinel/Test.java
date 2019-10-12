@@ -17,14 +17,8 @@ public class Test {
         sentinelSet.add("10.0.0.141:26380");
         sentinelSet.add("10.0.0.141:26381");
         JedisSentinelPool pool = new JedisSentinelPool("mymaster",sentinelSet);
-
         Jedis resource = pool.getResource();
-
         resource.set("key-sentinel1","value-sentinel1");
-
-
-
-
     }
 
 }
