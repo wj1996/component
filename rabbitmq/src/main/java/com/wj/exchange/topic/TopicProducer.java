@@ -33,7 +33,7 @@ public class TopicProducer {
                 //发送的消息
                 for (int k = 0 ; k < 3 ; k++) {
                     String message = "hello topic [" + i + j + k + "]";
-                    String routeKey = serverties[i % 3] + "." + modules[i % 3] + "." + servers[i % 3];
+                    String routeKey = serverties[i % 3] + "." + modules[j % 3] + "." + servers[k % 3];
                     channel.basicPublish(EXCHANGE_NAME,routeKey,null,message.getBytes());
                 }
             }
