@@ -1,14 +1,14 @@
-package com.wj.mandatory;
+package com.wj.transaction;
 
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-public class ProducerMandatory {
+public class ProducerTransaction {
 
 
-    public static final String EXCHANGE_NAME = "mandatory_logs";
+    public static final String EXCHANGE_NAME = "transaction_logs";
 
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -20,24 +20,6 @@ public class ProducerMandatory {
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME,"direct");
 
-
-        /**
-         * 连接关闭的时候执行
-         */
-        connection.addShutdownListener(new ShutdownListener() {
-            public void shutdownCompleted(ShutdownSignalException e) {
-                System.out.println(e.getMessage());
-            }
-        });
-
-        /**
-         * 信道关闭时执行
-         */
-        channel.addShutdownListener(new ShutdownListener() {
-            public void shutdownCompleted(ShutdownSignalException e) {
-                System.out.println(e.getMessage());
-            }
-        });
 
 
         //回调
@@ -59,12 +41,22 @@ public class ProducerMandatory {
 
         //发送消息
         String[] serverties = {"error","info","warning"};
-        for (int i = 0; i < 3; i++) {
-            String server = serverties[i % 3];
-            String msg = "hello rabbitmq " + (i + 1);
-            channel.basicPublish(EXCHANGE_NAME,server,true,null,msg.getBytes());
-//            Thread.sleep(200);
+        channel.txSelect();   //开始事务
+        try {
+            for (int i = 0; i < 3; i++) {
+                String server = serverties[i % 3];
+                String msg = "hello rabbitmq " + (i + 1);
+                channel.basicPublish(EXCHANGE_NAME,server,true,null,msg.getBytes());
+            Thread.sleep(200);
+            }
+            channel.txCommit();  //提交事务
+        } catch (IOException e) {
+            e.printStackTrace();
+            channel.txRollback();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
 
 //        channel.close();
 //        connection.close();
