@@ -11,6 +11,9 @@
     <modules>
         <module>spring</module>
         <module>spring-consumer</module>
+        <module>springboot</module>
+        <module>rq-order</module>
+        <module>rq-depot</module>
     </modules>
 
 
