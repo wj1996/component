@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring</artifactId>
+    <artifactId>spring-consumer</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -73,5 +74,4 @@
             <version>1.0.13</version>
         </dependency>
     </dependencies>
-
 </project>

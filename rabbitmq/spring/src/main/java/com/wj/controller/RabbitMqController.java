@@ -56,7 +56,7 @@ public class RabbitMqController {
                     String str = "Topic,the message_["+i+","+j+"] is [rk:"+routeKey+"][msg:"+message+"]";
                     logger.info("**************************Send Message:["+str+"]");
                     MessageProperties messageProperties = new MessageProperties();
-                    rabbitTemplate.send("topic_exchange",
+                    rabbitTemplate.send("topic-exchange",
                             routeKey,
                             new Message(str.getBytes(), messageProperties));
                 }

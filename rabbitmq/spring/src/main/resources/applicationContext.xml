@@ -40,15 +40,26 @@
 	<!--<rabbit:template id="rabbitTemplate" connection-factory="rabbitConnectionFactory"></rabbit:template>-->
 
     <!--生产者创建队列-->
-    <rabbit:queue name="h4_queue" durable="false"></rabbit:queue>
+    <!--<rabbit:queue name="h4_queue" durable="false"></rabbit:queue>-->
+    <!--<rabbit:queue name="h1_queue" durable="false"/>
+    <rabbit:queue name="h2_queue" durable="false"/>
+    <rabbit:queue name="h3_queue" durable="false"/>-->
 
 	<!--fanout交换器-->
     <rabbit:fanout-exchange name="fanout-exchange"
           xmlns="http://www.springframework.org/schema/rabbit" durable="false">
-        <bindings>
-            <binding queue="h4_queue"></binding>
-        </bindings>
+        <!--<bindings>
+            &lt;!&ndash;<binding queue="h1_queue"></binding>
+            <binding queue="h2_queue"></binding>
+            <binding queue="h3_queue"></binding>&ndash;&gt;
+            <binding queue="h4_queue" />
+
+        </bindings>-->
     </rabbit:fanout-exchange>
 
+	
+	<!--<rabbit:topic-exchange name="topic-exchange"  xmlns="http://www.springframework.org/schema/rabbit" durable="false">
+	</rabbit:topic-exchange>-->
+	
 
 </beans>  
