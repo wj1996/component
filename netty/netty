@@ -1,0 +1,11 @@
+aio（异步）
+    AsynchronousSocketChannel
+    AsynchronousServerSocketChannel
+    CompletionHandler
+
+    所有的操作（读和写）都是异步的，需要Handler来实现（实现CompletionHandler）
+
+nio
+    ServerSocketChannel
+    SocketChannel
+    Selector
