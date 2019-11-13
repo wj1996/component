@@ -20,17 +20,30 @@ public class EchoClient {
     }
 
     public void start() throws InterruptedException {
+        //线程组
         EventLoopGroup group = new NioEventLoopGroup();
         try {
+            /**
+             * 客户端启动必备
+             * 使用建造者模式
+             */
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(group)
-                    .channel(NioSocketChannel.class)
-                    .remoteAddress(host,port)
-                    .handler(new EchoClientHandler());
+                    .channel(NioSocketChannel.class)  //指明使用NIO通讯模式
+                    .remoteAddress(host,port) //远程服务器配置
+                    .handler(new EchoClientHandler()); /*
+                指定handler
+                    此处的继承SimpleChannelInboundHandler<I>
+                    Netty中使用的数据对象是ByteBuf  注意：jdk原生的使用的是ByteBuffer
+             */
+                    /*
+
+                     */
             ChannelFuture channelFuture = bootstrap.connect().sync();//连接到远程阻塞 sync 直到连接成功
+
             channelFuture.channel().closeFuture().sync();
         } finally {
-            group.shutdownGracefully();
+            group.shutdownGracefully().sync();
         }
 
     }

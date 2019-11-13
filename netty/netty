@@ -9,3 +9,146 @@ nio
     ServerSocketChannel
     SocketChannel
     Selector
+
+netty编程
+    Channel
+    回调和Future
+    事件和ChannelHandler
+
+    final EchoServerHandler handler = new EchoServerHandler();
+    EventLoopGroup group = new NioEventLoopGroup();
+    ServerBootstrap serverBootstrap = new ServerBootstrap();
+    serverBootstrap.group(group)
+                        .channel(NioServerSocketChannel.class)   //指定通讯模式
+                        .localAddress(new InetSocketAddress(port)) //配置监听端口
+                        /*
+                        接收到连接请求，新启动一个socket通信，也就是channel，每个channel都有自己事件的handler
+                         */
+                        .childHandler(new ChannelInitializer<SocketChannel>() {
+                            protected void initChannel(SocketChannel ch) throws Exception {
+                                ch.pipeline().addLast(handler);
+                                /*
+                                如果 handler不是@ChannelHandler.Sharable这样的，这些写，启动多个客户端时，就会有问题。
+                                 */
+                            }
+                        });
+    serverBootstrap.bind();----->
+    AbstractBootstrap
+
+        initAndRegister() ---->
+            config().group().register(channel);
+            此处的group就是创建的EventLoopGroup（NioEventLoopGroup）；
+
+            register方法其实就是调用MultithreadEventLoopGroup的register方法
+                next().register(channel);
+                    next() ---> (EventLoop)super.next();
+                                           chooser.next();
+                                           chooser ---> private final EventExecutorChooserFactory.EventExecutorChooser chosser;
+
+                                           DefaultEventExecutorChooserFactory---->
+                                                EventExecutor next() --->
+                                                    executors[idx.getAndIncrement() & executors.length - 1];
+
+                                                private final EventExecutor[] executors;
+
+                                                此处的executors默认会存放8个NioEventLoop。
+                next()方法会从executors中获取一个NioEventLoop对象 ，将这个channel注册到这个NioEventLoop
+                    SingleThreadEventLoop----》
+                        注册方法实际调用这个类的register方法
+                        register(Channel channel)---》
+                           promise.channel().unsafe().register(this, promise);--->向下调入
+
+                            AbstractChannel----》
+                                register(EventLoop eventLoop, final ChannelPromise promise) ---》
+                                    会做一些判断，首先判断不能为空，如果为空，抛空指针异常
+                                    判断是否已经注册过，如果注册过，也设置不合法的状态
+                                    然后判断是否匹配，判断(eventLoop)类型是否是NioEventLoop,如果不是，报错
+
+                                    判断是否是当前线程，如果不是，执行下述方法
+                                    （从main方法进入的时候，执行这段逻辑的是main主线程，而eventLoop的线程是另一个线程，所以进入下列逻辑）
+                                         交由线程池去执行。
+                                         eventLoop.execute(new Runnable() {
+                                                                @Override
+                                                                public void run() {
+                                                                    register0(promise);
+                                                                }
+                                                            });  ----------》
+                                            register0(promise);------>
+                                                 doRegister();---->
+                                                    AbstractNioChannel------->
+                                                        doRegister();------->
+                                                           selectionKey = javaChannel().register(eventLoop().unwrappedSelector(), 0, this);----》
+                                                           //此处是不是愉快的发现了nio原生jdk编程中，将通道注册到selector上面
+                                                                javaChannle()---->  NioServerSocketChannel
+                                                                    (ServerSocketChannel) super.javaChannel();---->
+                                                                eventLoop().unwrappedSelector() --> selector
+                                                                0 ----->  此处的操作参数竟然传了个0？？？？下面会解答
+
+        doBind0(regFuture, channel, localAddress, promise);----》
+            channel.eventLoop().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (regFuture.isSuccess()) {
+                                channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+                            } else {
+                                promise.setFailure(regFuture.cause());
+                            }
+                        }
+            });
+            将绑定事件交给channel.eventLoop()线程池去处理
+            实际执行的方法：
+            channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);----》
+                AbstractChannel bind(SocketAddress localAddress, ChannelPromise promise); --->
+                        pipeline.bind(localAddress, promise);---->
+                            DefaultChannelPipeline------>
+                                ChannelFuture bind(SocketAddress localAddress, ChannelPromise promise);---->
+                                    tail.bind(localAddress, promise);---->
+                                        AbstractChannelHandlerContext------>
+                                            bind(final SocketAddress localAddress, final ChannelPromise promise);---->
+                                            开始发现熟悉的类了，SocketAddress
+                                                final AbstractChannelHandlerContext next = findContextOutbound(MASK_BIND);
+                                                EventExecutor executor = next.executor();
+                                                executor.inEventLoop();
+                                                判断当前执行的线程是否是对象里的线程
+                                                如果是，开始执行下列逻辑
+                                                next.invokeBind(localAddress, promise);------》
+                                                       invokeBind(SocketAddress localAddress, ChannelPromise promise) ----》
+                                                            首先会判断 invokeHandler()
+                                                            如果是，执行下述逻辑
+                                                            ((ChannelOutboundHandler) handler()).bind(this, localAddress, promise);----》
+                                                                DefaultChannelPipeline-----》
+                                                                    bind(ChannelHandlerContext ctx, SocketAddress localAddress, ChannelPromise promise)--->
+                                                                        unsafe.bind(localAddress, promise);---->
+                                                                            AbstractChannel中的AbstractUnsafe---->
+                                                                                doBind(localAddress);------>
+                                                                                    NioServerSocketChannel-------------->
+                                                                                        doBind(SocketAddress localAddress)------->
+                                                                                            javaChannel().bind(localAddress, config.getBacklog());---->
+                                                                                                ServerSocketChannelImpl------->
+                                                                                                    bind(SocketAddress var1, int var2);
+                                                                                                    //此处就到了原生JDK调用bind方法的调用处
+
+
+
+
+
+
+
+
+
+
+            EventLoopGoup 继承 MultithreadEventLoopGroup
+                                    继承  MultithreadEventExecutorGroup
+                                            继承  MultithreadEventExecutorGroup
+
+                                    实现  EventLoopGroup
+                                                继承 EventExecutorGroup
+                                                        继承  ScheduledExecutorService，Iterable<EventExecutor>
+                                                                继承  ExecutorService
+                                                                          继承  Executor
+            EventExecutor 继承 EventExecutorGroup
+
+
+            NioEventLoop 继承 SingleThreadEventLoop
+                                    继承  SingleThreadEventExecutor
+                                    实现  EventLoop

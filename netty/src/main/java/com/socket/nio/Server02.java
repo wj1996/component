@@ -1,5 +1,6 @@
 package com.socket.nio;
 
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -13,7 +14,7 @@ import java.util.Set;
 public class Server02 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         try {
             //多路复用器，选择器，用于注册通道的   开启多路复用器
             Selector selector = Selector.open();
@@ -48,8 +49,12 @@ public class Server02 {
              *      OP_WRITE    可以写入数据集的标志位
              *      OP_CONNECT  建立连接后的标记
              */
-            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            SelectionKey selectioKey = serverSocketChannel.register(selector, 0);
+//            serverSocketChannel.register(selector,0);
             System.out.println("服务启动");
+            Thread.sleep(10000);
+            System.out.println("服务注册接收成功");
+            selectioKey.interestOps(SelectionKey.OP_CONNECT);
             while (true) {
                 //阻塞方法，至少一个通道被选中，此方法返回
                 //通道是否选中，由注册到多路复用器中的通道标记决定

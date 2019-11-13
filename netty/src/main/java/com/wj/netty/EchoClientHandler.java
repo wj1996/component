@@ -10,6 +10,8 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     /**
      * 客户端接收到数据后的操作
+     * 每一个ChannelHandler都会有一个ChannelHandlerContext上下文对象
+     *
      * @param ctx
      * @param msg
      * @throws Exception
@@ -26,6 +28,9 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        /*
+            所谓的池化技术是什么？？？？
+         */
         ctx.writeAndFlush(Unpooled.copiedBuffer("hello netty",CharsetUtil.UTF_8));
     }
 
