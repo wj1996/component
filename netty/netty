@@ -84,6 +84,87 @@ netty编程
                                                                 eventLoop().unwrappedSelector() --> selector
                                                                 0 ----->  此处的操作参数竟然传了个0？？？？下面会解答
 
+
+        由netty的工作线程去处理：
+
+            SingleThreadEventExecutor------->
+                doStartThread()----->
+                    交由线程池执行
+                     executor.execute(new Runnable());
+                     执行任务的逻辑：
+                        SingleThreadEventExecutor.this.run();-----》
+                            NioEventLoop------>
+                                void run()------》
+                                    此处有一段逻辑：
+                                        死循环，进行选择策略的判断
+                                        case SelectStrategy.SELECT:
+                                                                select(wakenUp.getAndSet(false)); //此处就是选择，使用selector来选择事件
+                                                                原生JDK的Nio编程中，使用selector来选择
+
+
+                                    在finally的处理中有这样一段逻辑
+                                    SingleThreadEventExecutor---》
+                                                    runAllTasks(ioTime * (100 - ioRatio) / ioRatio);----》
+
+
+            AbstractExecutor-------》 eventLoop
+                safeExecute(Runnable task)----》
+                    task.run();----》
+                        register0(promise);----->
+
+        线程池执行任务-------》
+            pipeline.fireChannelActive();-----》
+                DefaultChannelpipeline------》
+                    AbstractChannelHandlerContext.invokeChannelActive(head);----》
+                        AbstractChannelHandlerContext-----》
+                            void invokeChannelActive(final AbstractChannelHandlerContext next)----》
+                                next.invokeChannelActive();---->
+                                    void invokeChannelActive()----->
+                                        ((ChannelInboundHandler) handler()).channelActive(this);---->
+                                            void channelActive(ChannelHandlerContext ctx)----->
+                                                ctx.fireChannelActive();---->
+                                                readIfIsAutoRead();---->
+                                                    执行的就是下述的逻辑分析
+
+
+        DefaultChannelpipeline------>
+            channelActive(ChannelHandlerContext ctx) ------>
+
+                readIfIsAutoRead(); ---->
+                    channel.read(); ----->
+                       AbstractChannel----->
+                         Channel read()---->
+                            pipeline.read();---->
+                                DefaultChannelpipeline----->
+                                    ChannelPipeline read() -----》
+                                         tail.read();-----》
+                                            AbstractChannelHandlerContext----》
+                                                next.invokeRead();-----》
+                                                    invokeRead();----->
+                                                       ((ChannelOutboundHandler) handler()).read(this);---->
+                                                             DefaultChannelPipeline$HeadContext------>
+                                                                unsafe.beginRead();---->
+                                                                    DefaultChannelPipeline$AbstractUnsafe----->
+                                                                        beginRead()---->
+                                                                            doBeginRead();----->
+                                                                                AbstractNioMessageChannel---->
+                                                                                    super.doBeginRead();---->
+                                                                                        AbstractNioChannel---->
+                                                                                            doBeginRead()---->
+                                                                                                selectionKey.interestOps(interestOps | readInterestOp);---->
+                                                                                                    SelectionKeyImpl---->
+                                                                                                        SelectionKey interestOps(int var1)---->
+                                                                                                            return this.nioInterestOps(var1);--->
+                                                                                                            此处通过selectionKey去操作，修改注册的事件，修改为监听
+                                                                                                            OP_ACCEPT事件
+
+
+
+
+
+
+
+
         doBind0(regFuture, channel, localAddress, promise);----》
             channel.eventLoop().execute(new Runnable() {
                         @Override

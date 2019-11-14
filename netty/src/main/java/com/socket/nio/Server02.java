@@ -51,10 +51,14 @@ public class Server02 {
              */
             SelectionKey selectioKey = serverSocketChannel.register(selector, 0);
 //            serverSocketChannel.register(selector,0);
+
             System.out.println("服务启动");
-            Thread.sleep(10000);
+//            Thread.sleep(10000);
+            /**
+             * 可以直接通过对注册产生的SelectionKey直接操作，修改其注册的事件，通过selectioKey.interestOps(16);方法，netty中使用的就是这种方式
+             */
+            selectioKey.interestOps(16);
             System.out.println("服务注册接收成功");
-            selectioKey.interestOps(SelectionKey.OP_CONNECT);
             while (true) {
                 //阻塞方法，至少一个通道被选中，此方法返回
                 //通道是否选中，由注册到多路复用器中的通道标记决定
