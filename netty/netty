@@ -16,8 +16,8 @@ netty编程
     事件和ChannelHandler
 
     final EchoServerHandler handler = new EchoServerHandler();
-    EventLoopGroup group = new NioEventLoopGroup();
-    ServerBootstrap serverBootstrap = new ServerBootstrap();
+    EventLoopGroup group = new NioEventLoopGroup();   //线程池
+    ServerBootstrap serverBootstrap = new ServerBootstrap();   //引导启动类
     serverBootstrap.group(group)
                         .channel(NioServerSocketChannel.class)   //指定通讯模式
                         .localAddress(new InetSocketAddress(port)) //配置监听端口
@@ -233,3 +233,20 @@ netty编程
             NioEventLoop 继承 SingleThreadEventLoop
                                     继承  SingleThreadEventExecutor
                                     实现  EventLoop
+                                            继承 OrderedEventExecutor
+                                                继承
+                                                    EventExecutor
+                                                        继承
+                                                            EventExecutorGroup
+                                                                继承
+                                                                    ScheduledExecutorService
+                                            继承 EventLoopGroup
+                                                继承
+                                                    EventExecutorGroup
+
+
+
+
+
+
+
