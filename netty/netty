@@ -36,11 +36,11 @@ netty编程
     AbstractBootstrap
 
         initAndRegister() ---->
-            config().group().register(channel);
+            config().group().register(channel);     -------》这后面的逻辑，this对象指向的就是config.group()--->NioEventLoopGroup
             此处的group就是创建的EventLoopGroup（NioEventLoopGroup）；
 
             register方法其实就是调用MultithreadEventLoopGroup的register方法
-                next().register(channel);
+                next().register(channel);  --------> next() 获取一个NioEventLoop，此时this指向的是这个NioEventLoop
                     next() ---> (EventLoop)super.next();
                                            chooser.next();
                                            chooser ---> private final EventExecutorChooserFactory.EventExecutorChooser chosser;
@@ -56,7 +56,7 @@ netty编程
                     SingleThreadEventLoop----》
                         注册方法实际调用这个类的register方法
                         register(Channel channel)---》
-                           promise.channel().unsafe().register(this, promise);--->向下调入
+                           promise.channel().unsafe().register(this, promise);--->向下调入,这个this指向的就是从executors中获取的NioEventLoop
 
                             AbstractChannel----》
                                 register(EventLoop eventLoop, final ChannelPromise promise) ---》
@@ -66,7 +66,7 @@ netty编程
 
                                     判断是否是当前线程，如果不是，执行下述方法
                                     （从main方法进入的时候，执行这段逻辑的是main主线程，而eventLoop的线程是另一个线程，所以进入下列逻辑）
-                                         交由线程池去执行。
+                                         交由线程池去执行。交给了NioEventLoop线程池，此处是第一个任务,此时转换线程执行，分析在netty工作线程里面
                                          eventLoop.execute(new Runnable() {
                                                                 @Override
                                                                 public void run() {
@@ -85,8 +85,7 @@ netty编程
                                                                 0 ----->  此处的操作参数竟然传了个0？？？？下面会解答
 
 
-        由netty的工作线程去处理：
-
+        由netty的工作线程去处理：NioEventLoop
             SingleThreadEventExecutor------->
                 doStartThread()----->
                     交由线程池执行
@@ -105,7 +104,15 @@ netty编程
                                     在finally的处理中有这样一段逻辑
                                     SingleThreadEventExecutor---》
                                                     runAllTasks(ioTime * (100 - ioRatio) / ioRatio);----》
-
+                                                        for死循环，执行每个任务
+                                                        safeExecute(task);-------》
+                                                            第一个执行任务：
+                                                                AbstractBootStrap----->
+                                                                if (regFuture.isSuccess()) {
+                                                                                    channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+                                                                                } else {
+                                                                                    promise.setFailure(regFuture.cause());
+                                                                                }
 
             AbstractExecutor-------》 eventLoop
                 safeExecute(Runnable task)----》
