@@ -107,12 +107,14 @@ netty编程
                                                         for死循环，执行每个任务
                                                         safeExecute(task);-------》
                                                             第一个执行任务：
-                                                                AbstractBootStrap----->
-                                                                if (regFuture.isSuccess()) {
-                                                                                    channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
-                                                                                } else {
-                                                                                    promise.setFailure(regFuture.cause());
-                                                                                }
+                                                                AbstractBootStrap$AbstractUnsafe----->
+                                                                    register0(promise);---执行的就是这个方法----》
+                                                                        AbstractNioChannel----->
+                                                                            void doRegister()--->
+                                                                                doRegister();---->
+                                                                                    selectionKey = javaChannel().register(eventLoop().unwrappedSelector(), 0, this);
+                                                                                    注册通道到selector上面，
+
 
             AbstractExecutor-------》 eventLoop
                 safeExecute(Runnable task)----》
@@ -215,13 +217,6 @@ netty编程
                                                                                                 ServerSocketChannelImpl------->
                                                                                                     bind(SocketAddress var1, int var2);
                                                                                                     //此处就到了原生JDK调用bind方法的调用处
-
-
-
-
-
-
-
 
 
 

@@ -72,6 +72,9 @@ public class EchoServer {
         try {
             //服务器端必备ServerBootStrap
             ServerBootstrap serverBootstrap = new ServerBootstrap();
+            /*
+            一个channel只能关联一个ChannelPipeline
+             */
             serverBootstrap.group(group)
                     .channel(NioServerSocketChannel.class)   //指定通讯模式
                     .localAddress(new InetSocketAddress(port)) //配置监听端口
