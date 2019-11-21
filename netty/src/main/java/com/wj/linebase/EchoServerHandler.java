@@ -1,22 +1,30 @@
-package com.wj.netty;
+package com.wj.linebase;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
-import io.netty.util.ReferenceCountUtil;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ChannelHandler.Sharable /*可以在多个channel中共享，意味这个实现必须是线程安全的*/
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
+
+    //统计数量
+    /*
+    为了验证粘包问题，客户端发送100次，期望的是服务端收到的也是100次，可是。。。。
+     */
+    private AtomicInteger atomicInteger = new AtomicInteger();
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println("server accept " + in.toString(CharsetUtil.UTF_8));
+        String str = in.toString(CharsetUtil.UTF_8);
+        System.out.println("server accept " + str + ",count is " + atomicInteger.incrementAndGet());
         /*
         三种不同写的方式
             直接使用上下文写的方式和下面两种写的最大的不同是：
@@ -26,7 +34,8 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
                 最近的那个出站处理器将数据写出，告知调用方法参数有问题，而不是从最后的一个出站处理器，一直调用到最近的那个
                 出站处理，这样会浪费性能，可能后面的出站处理器只是用来处理业务请求的。
          */
-        ctx.write(in);
+        str += " hello world!" + System.getProperty("line.separator");
+        ctx.write(Unpooled.copiedBuffer(str,CharsetUtil.UTF_8));
 //        ctx.channel().writeAndFlush(in);
 //        ctx.pipeline().writeAndFlush(in);
         /*
@@ -49,13 +58,13 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
                     PooledByteBufAllocator （池化，会保持内存空间，下次接着使用,netty4中使用的就是池化）
                     UnpooledByteBufAllocator （每次申请都是一个新的内存空间）
          */
-        ByteBufAllocator alloc = ctx.alloc();
-        alloc.buffer();
-        ctx.channel().alloc();
-
-
-        Unpooled.buffer();
-        Unpooled.directBuffer(); //从直接内存申请内存空间
+//        ByteBufAllocator alloc = ctx.alloc();
+//        alloc.buffer();
+//        ctx.channel().alloc();
+//
+//
+//        Unpooled.buffer();
+//        Unpooled.directBuffer(); //从直接内存申请内存空间
 
     }
 

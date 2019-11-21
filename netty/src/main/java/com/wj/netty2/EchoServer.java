@@ -1,4 +1,4 @@
-package com.wj.netty;
+package com.wj.netty2;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -87,6 +87,7 @@ public class EchoServer {
                      * childOption
                      *  ChannelOption  与TCP相关的参数
                      *      SO_BACKLOG  ----> 指明服务器可连接队列的大小
+                     *      TCP存在一个算法，会将较小的数据包进行合并，然后发送
                      *      TCP_NODELAY  ---》是否无延迟
                      */
 

@@ -1,4 +1,4 @@
-package com.wj.netty;
+package com.wj.linebase;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 
 import java.net.InetSocketAddress;
 
@@ -87,6 +88,7 @@ public class EchoServer {
                      * childOption
                      *  ChannelOption  与TCP相关的参数
                      *      SO_BACKLOG  ----> 指明服务器可连接队列的大小
+                     *      TCP存在一个算法，会将较小的数据包进行合并，然后发送
                      *      TCP_NODELAY  ---》是否无延迟
                      */
 
@@ -94,6 +96,7 @@ public class EchoServer {
                     .childOption(ChannelOption.TCP_NODELAY,true)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         protected void initChannel(SocketChannel ch) throws Exception {
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(10));   //此处指定大小不会有影响吗？？？
                             ch.pipeline().addLast(handler);
                             /*
                             如果 handler不是@ChannelHandler.Sharable这样的，这些写，启动多个客户端时，就会有问题。
