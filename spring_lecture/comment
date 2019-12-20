@@ -1,0 +1,57 @@
+springboot运行的三种方式说明：
+    1. 直接运行main方法
+    2. 通过gradle中的tasks运行：
+        bootRun
+    3. 命令行方式
+        gradle bootRun
+        通过这种方式执行，会报错，报错信息如下：
+            java.lang.IllegalStateException: The Java Virtual Machine has not been configured to use the desired default character encoding (UTF-8).
+        解决方式：指定编码格式，
+            1. 修改gradle.bat文件（全局生效）：
+                set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"  "-Dfile.encoding=UTF-8"
+            （单个工程生效）
+            2. gradle -Dfile.encoding=UTF-8 bootRun
+将工程打成一个jar包
+    gradle -Dfile.encoding=UTF-8 bootJar,打包成功后，会在build目录下面新增一个目录libs,里面存放的就是最新的jar包
+
+    运行jar包：
+        java -jar -Dfile.encoding=UTF-8  spring_lecture-1.0.jar
+
+        解压缩jar包，分析目录：
+            -spring_lecture
+                -BOOT-INF
+                -META-INF
+                    -MANIFEST.MF
+                        Manifest-Version: 1.0
+                        Start-Class: com.wj.boot.MyApplication
+                        Spring-Boot-Classes: BOOT-INF/classes/
+                        Spring-Boot-Lib: BOOT-INF/lib/
+                        Spring-Boot-Version: 2.1.11.RELEASE
+                        Main-Class: org.springframework.boot.loader.JarLauncher
+                -org
+                    -springframework
+                        -boot
+                            -loader
+                                -JarLauncher.class(分析这个类，发现当前项目不存在这个类)
+                                    这个部分是在配置依赖的插件集成的，"org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"，
+                                    这个插件是配置在classpath,当运行时会生产插件的相关内容， 所以在工程编译的期间不会存在这个类文件。
+                                    可以通过反编译的方式查看这个类的源码，但是这不是一种好的方式，可以通过增加依赖来解决这个问题：
+                                        "org.springframework.boot:spring-boot-loader"
+                                        增加这个依赖后，就可以查看源码
+
+    JarLauncher分析：
+
+
+    对于java的一个标准jar文件中，被指定为mainclass入口类的这个类，连同它的包结构，必须在jar包的最顶层目录，不能位于其它的子目录里面。
+    这也就是为什么在打包的过程中，不是将org.springframework.boot:spring-boot-loader这个jar依赖，只是将相关内容拷贝到相关顶级目录下面。
+    如果不是这样处理的话，那么这个main方法将无法被执行，可能会有疑问，那BOOT-INF/classes下面的application是如何执行的，这是基于springboot的自定义
+    类加载器来运行的。
+
+    Fatjar
+
+JDWP
+    java debug wire Protocol java调试协议
+    java -Dfile.encoding=UTF-8 -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5050   -jar spring_lecture-1.0.jar
+    启动后，通过idea来启动一个remote
+springboot启动流程分析
+

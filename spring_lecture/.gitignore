@@ -1,0 +1,9 @@
+##Folders
+target
+.settings
+out
+##file
+.classpath
+.idea
+build
+.gradle
