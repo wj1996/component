@@ -18,7 +18,7 @@ public class BrandDaoImpl implements IBrandDao {
         Connection connection = DBUtils.getConn();
         PreparedStatement ps = connection.prepareStatement("insert into brand(name,ctime) values(?,?)");
         ps.setString(1,brand.getName());
-        ps.setDate(2,brand.getCtime());
+        ps.setDate(2,new java.sql.Date(brand.getCtime().getTime()));
         ps.execute();
     }
 }

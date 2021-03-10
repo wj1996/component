@@ -1,4 +1,4 @@
-package com.wj.web;
+package com.wj;
 
 
 import org.springframework.boot.SpringApplication;
