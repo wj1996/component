@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 		<script src="js/vue.js"></script>
+		<script src="js/vue-resource.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<title></title>
 	</head>
@@ -15,9 +16,9 @@
 					<h3 class="panel-title">添加品牌</h3>
 				</div>
 				<div class="panel-body form-inline ">
-					<labe>
+					<!-- <labe>
 						id:<input type="text" class="form-control" v-model="id" />
-					</labe>
+					</labe> -->
 					<labe>
 						name:<input type="text" class="form-control" v-model="name" @keyup.enter="add" />
 					</labe>
@@ -49,10 +50,16 @@
 					</tr>
 				</tbody>
 			</table>
+			
+			<div>
+				<input type="button" value="测试" @click="getList" />
+			</div>
 		</div>
 		<div id="app2">
 			{{msg | dateFormat}}
 		</div>
+		
+		
 	</body>
 	<script>
 		//function的第一个参数固定了，传递的数据
@@ -87,6 +94,11 @@
 		
 		Vue.config.devtools = true;
 		var vue = new Vue({
+			
+			created() {
+				this.getList();
+			},
+			
 			el:"#app",
 			data:{
 				list:[
@@ -99,8 +111,13 @@
 			},
 			methods:{
 				add(){
-					var obj = {id:this.id,name:this.name,ctime:new Date()};
-					this.list.push(obj);
+					/* var obj = {id:this.id,name:this.name,ctime:new Date()};
+					this.list.push(obj); */
+					
+					this.$http.post("http://localhost:8080/addBrand",{name:this.name,ctime:new Date()},{emulateJSON:true}).then(function(result){
+						console.log(result);
+					});
+					
 				},
 				del(id){
 					this.list.some((item,i)=>{
@@ -137,7 +154,17 @@
 						}
 					});
 					return newList;
+				},
+				
+				//获取品牌数据
+				getList() {
+					this.$http.get("http://localhost:8080/getBrandList").then(function(result){
+						console.log(result.data);
+						this.list = result.data;
+					});
 				}
+				
+				
 			},
 			filters:{ //私有过滤器
 				dateFormat:function(data){

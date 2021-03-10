@@ -1,0 +1,8 @@
+##Folders
+target
+.settings
+out
+##file
+.classpath
+.idea
+data
