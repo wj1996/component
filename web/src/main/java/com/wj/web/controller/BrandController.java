@@ -18,7 +18,6 @@ public class BrandController {
     @Autowired
     private IBrandSV brandSV;
 
-
     @RequestMapping("getBrandList")
     public List<Brand> getList() {
         List list = new ArrayList();

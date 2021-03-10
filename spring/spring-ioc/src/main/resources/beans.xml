@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.wj.spring.base.Person">
-        <property name="name" value="test" />
-        <property name="age" value="1" />
-    </bean>
+<bean id="person" class="com.wj.spring.base.Person">
+    <property name="name" value="test" />
+    <property name="age" value="1" />
+</bean>
 
 </beans>

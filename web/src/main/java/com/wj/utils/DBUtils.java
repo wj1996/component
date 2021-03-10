@@ -1,5 +1,6 @@
 package com.wj.utils;
 
+import java.io.Closeable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,5 +16,14 @@ public class DBUtils {
     }
     public static Connection getConn() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3307/my","root","root");
+    }
+
+    public static void close(AutoCloseable...closeables) throws Exception {
+        if (null == closeables || closeables.length < 1) return;
+        for (AutoCloseable autoCloseable : closeables) {
+            if (null != autoCloseable) {
+                autoCloseable.close();
+            }
+        }
     }
 }

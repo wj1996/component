@@ -1,0 +1,5 @@
+Disruptor开发步骤：
+1.定义Event-队列中需要处理的元素
+2.定义Event工厂，用于填充队列
+    这里牵扯到效率问题，disruptor初始化的时候，会调用Event的工厂，对ringBuffer进行内存的提前分配，GC频率会降低
+3.定义EventHandler（消费者），处理容器中的元素
