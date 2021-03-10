@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div>{{msg}}</div> <!-- 网络延迟，或者加载延迟，可能会出现闪烁问题，{{msg}}会闪烁在页面-->
+			<!-- 解决方式1： -->
+			<div v-cloak>{{msg}}</div>
+			<!-- 解决方式2 -->
+			<div v-text="msg"></div> <!-- 问题：不能添加额外的内容，完全替换数据-->
+			
+			<!-- v-bind 绑定属性 -->
+			<!-- v-on 事件绑定 -->
+			<button type="submit" title="mytitle" v-on:click="show">按钮</button><br/>
+			<button type="submit" v-bind:title="mytitle" id='btn'>按钮</button><br/>
+		</div>
+		
+	</body>
+	<script src="js/vue.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el:"#app",
+			data:{
+				msg:"123",
+				mytitle:"hello"
+			},
+			methods:{
+				show:function(){
+					alert("show");
+				}
+			}
+		});
+		
+		//原生js
+		document.getElementById("btn").onclick=function() {
+			alert("btn");
+		}
+	</script>
+</html>

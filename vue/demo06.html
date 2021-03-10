@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="js/vue.min.js"></script>
+		<script src="js/vue-resource.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="请求" @click="getInfo" />
+			<input type="button" value="post请求" @click="getInfo2" />
+			
+			<input type="button" value="请求2" @click="getInfo3" />
+		</div>
+	</body>
+	<script>
+		var vue = new Vue({
+			el:"#app",
+			methods:{
+				getInfo(){ //get请求
+					this.$http.jsonp('http://localhost:8080/api/productside/getMarketInfo2?marketId=600000433392&callback=show2').then(function(result){
+						console.log(result);
+					});
+				},
+				getInfo2(){
+					this.$http.post('http://localhost:8080/api/productside/getMarketInfo2?marketId=600000433392&callback=show2').then(function(result){
+						console.log("post-result" + JSON.stringify(result));
+					});
+				},
+				getInfo3(){
+					this.$http.get('http://localhost:8080/api/productside/getMarketInfo2?marketId=600000433392&callback=show2').then(function(result){
+						console.log(result);
+					});
+				}
+			}
+		});
+		
+		function show(){
+			console.log('ok');
+		}
+		
+		function show2(data) {
+			console.log(data);
+		}
+	</script>
+	<!-- <script src="http://localhost:8080/api/productside/getMarketInfo?marketId=600000433392"></script> -->
+	<!-- <script src="http://localhost:8080/api/productside/getMarketInfo2?marketId=600000433392&callback=show2"></script> -->
+	<!-- <script src="http://localhost:30000/getscript?callback=show2"></script> -->
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.min.js"></script>
+		<style>
+			.inner {
+				height: 100px;
+				background-color: darkcyan;
+				margin-left: 50px;
+				margin-right: 50px;
+			}
+			.outer {
+				height: 200px;
+				background-color: red;
+			}
+			
+			.red{
+				color: red;
+			}
+			
+			.active{
+				font-style: italic;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="outer" @click="div2Handler">
+				<div class="inner" @click="divClick">
+					<input type="submit" value="戳" @click.stop="inputClick"  />
+				</div>
+			</div>
+			<hr/>
+			<div class="outer" @click="div2Handler">
+				<div class="inner" @click.self="divClick">
+					<input type="submit" value="戳" @click="inputClick"  />
+				</div>
+			</div>
+			<a href="http://www.baidu.com" @click.prevent.once="linkC">百度</a>
+			<div>
+				<h4>{{msg}}</h4>
+				<!-- v-bind只能实现数据的单向绑定 -->
+				<input type="text" v-bind:value="msg" /><br/>
+				<!-- v-model能实现数据的双向绑定 -->
+				<input type="text" v-model:value="msg" />
+			</div>
+			
+			<div>
+				<input type="text" v-model="n1" />
+				<select v-model="opt">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+				</select>
+				<input type="text" v-model="n2" />
+				<input type="button" value="=" @click="calc" />
+				<input type="text" v-model="result" />
+			</div>
+			
+			<div>
+				<!-- 直接传递数组，v-bind绑定方式 -->
+				<h1 :class=['red',flag?'active':'']>hello world</h1>
+				<h1 :class=[{'active':flag}]>hello world</h1>
+				
+				<h1 :class="{red:true,active:true}">hello world</h1>
+				<h1 :class="classObj">hello world</h1>
+				
+				<h1 :style="{color:'red','font-weight':'20'}">hello world</h1>
+			</div>
+			
+			<div>
+				<p>{{list}}</p>
+				<p v-for="item in list">{{item}}</p>
+				<p v-for="item,i in list">{{i}},{{item}}</p>
+				
+				<p v-for="user in list2">
+					{{user.id}} + {{user.name}}
+				</p>
+				<p v-for="user,i in list2">
+					{{i}},{{user.id}} + {{user.name}}
+				</p>
+				
+				<p v-for="val,key in user">
+					{{key}} : {{val}}
+				</p>
+			</div>
+			
+			<div>
+				<p v-if="flag2">hello world</p>
+				<p v-show="flag2">hello world</p>
+				<input type="button" value="toggle" @click="flag2=!flag2" />
+			</div>
+			
+		</div>
+	</body>
+	<script>
+		var vue = new Vue({
+			el:"#app",
+			data:{
+				msg:'好学生，爱学习',
+				n1:null,
+				n2:null,
+				result:null,
+				opt:null,
+				flag:true,
+				classObj:{
+					red:true,active:true
+				},
+				list:[1,2,3,4,5,6],
+				list2:[
+					{"id":1,"name":"wj"},
+					{"id":2,"name":"wj2"},
+					{"id":3,"name":"wj3"},
+				],
+				user:{
+					id:1,
+					name:"haha",
+					gender:"男"
+				},
+				flag2:true
+			},
+			methods:{
+				divClick(){
+					console.log("divClick");
+				},
+				inputClick(){
+					console.log("inputClick");
+				},
+				linkC(){
+					console.log("点击事件");
+				},
+				div2Handler(){
+					console.log("div2Handler");
+				},
+				calc(){
+					/* switch(this.opt){
+						case "+":
+							this.result = parseInt(this.n1) + parseInt(this.n2);
+							break;
+						case "-":
+							this.result = parseInt(this.n1) - parseInt(this.n2);
+							break;
+						case "*":
+							this.result = parseInt(this.n1) * parseInt(this.n2);
+							break;
+						case "/":
+							this.result = parseInt(this.n1) / parseInt(this.n2);
+							break;
+					} */
+					var codeStr = 'parseInt(this.n1)' + this.opt + 'parseInt(this.n2)';
+					this.result = eval(codeStr);
+				}
+			},
+			
+		});
+	</script>
+</html>

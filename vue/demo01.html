@@ -1,0 +1,37 @@
+<html>
+
+	<head>
+		<script src="./js/vue.min.js"></script> 
+		<!-- 注意：此处引入必须写<script></scirpt> -->
+	</head>
+	<body>
+		<div id="app">
+			<!-- {{message}} vue的插值表达式，两对大括号 -->
+			{{a}}--
+		</div>
+	</body>
+	
+	<script>
+		var data = {a:1};
+		
+		
+		
+		
+		var app = new Vue({
+			el:"#app", //由vue接管id为app的区域 el代表element
+			/* data:{
+				message:"hello vue", //注意：此处不要加分号
+				
+			} */
+			data:data,
+			
+		});
+		data.a = "hello world";
+		// app.b = "test";
+		app.$data == data
+		app.$watch('a',function(newVal,oldVal){
+			console.log(newVal,oldVal);
+		})
+		app.$data.a = "t";
+	</script>
+</html>
