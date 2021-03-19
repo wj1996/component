@@ -1,0 +1,117 @@
+tasks.register('hello') {
+	doLast {
+		println 'hello world'
+	}
+
+}
+
+tasks.register('upper') {
+	doLast {
+		String str = 'my_nAme'
+		println "Original:$str"
+		println "Upper case:${str.toUpperCase()}"
+	}
+}
+tasks.register('count') {
+	doLast {
+		4.times {print "$it "}
+	}
+}
+/*依赖*/
+tasks.register('intro') {
+	dependsOn tasks.hello
+	doLast {
+		println "I'm gradle"
+	}
+}
+tasks.register('taskX') {
+	dependsOn 'taskY'
+	doLast {
+		println 'taskX'
+	}
+}
+tasks.register('taskY') {
+	doLast {
+		println 'taskY'
+	}
+}
+
+4.times {
+	counter -> 
+	tasks.register("task$counter") {
+		doLast {
+			println "I'm task number $counter"
+		}
+	}
+}
+tasks.named('task0') {dependsOn('task2','task3')}
+
+tasks.named('hello') {
+	doFirst {
+		println 'hello'
+	}
+}
+tasks.named('hello') {
+	doFirst {
+		println 'hello first 2'
+	}
+	doLast {
+		println 'hello last 2'
+	}
+}
+
+
+task checksum {
+	doLast {
+		fileList('./sources').each {
+			File file -> 
+			println "$file.name"
+		}
+	}
+}
+task loadFile {
+	doLast {
+		fileList('./sources').each {
+			File file ->
+				println "I'm load file $file.name"
+		}
+	}
+}
+File[] fileList(String dir) {
+	file(dir).listFiles({file -> file.isFile()} as FileFilter).sort()
+}
+
+defaultTasks 'clean','run'
+
+task clean {
+	doLast {
+		println 'clean'
+	}
+}
+task run {
+	doLast {
+		println 'run'
+	}
+}
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath group: 'commons-codec',name:'commons-codec',version:'1.2'
+	}
+}
+import org.apache.commons.codec.binary.Base64
+task encode {
+	doLast {
+		def byte[] encodeString = new Base64().encode('hello world'.getBytes());
+		println new String(encodeString);
+	}
+}
+
+
+
+
+
+

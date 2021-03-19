@@ -5,6 +5,3 @@ out
 ##file
 .classpath
 .idea
-.gradle
-build
-scripts
