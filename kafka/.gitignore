@@ -1,0 +1,12 @@
+##Folders
+target
+.settings
+out
+##file
+.classpath
+.idea
+.gradle
+build
+scripts
+complier.xml
+.iml

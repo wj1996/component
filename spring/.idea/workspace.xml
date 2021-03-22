@@ -1,17 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:activemq" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:activemq" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:delayOrder" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:mybatis" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:netty" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:redis" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:spring" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:springboot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6b2f6301-d644-4a53-951b-6707848114e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mybatis/netty-2019-10-08-0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../rabbitmq/spring-consumer/spring-consumer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../rabbitmq/spring/spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kafka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../kafka/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring-ioc/src/main/resources/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-ioc/src/main/resources/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-ioc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-ioc/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/pom.xml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/spring-ioc/target/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,102 +119,6 @@
     <expand />
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1054493846">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="3" />
-          <entry key="spring配置文件" value="1" />
-          <entry key="xml" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="3" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="3" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/resources/beans.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-ioc/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="39" column="34" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring配置文件">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2052">
-              <caret line="108" column="53" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig6.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -137,206 +129,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/Person.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/test/Test.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/base/test/Test.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/base/Person.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/test/Test.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyTypeFilter.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo01.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo02.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyCondition.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig2.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/Dog.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/MyImportSelector.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/MyImportBeanDefinitionRegistrar.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/MyFactoryBean.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig3.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo03.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/Bike.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig4.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo04.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/Plane.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/Bird.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/Bird.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/resources/my.properties" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo05.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig5.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig6.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/MyService.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo06.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/MyController.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/Moon.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/Sun.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo08.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls2/Light.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig7.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/aop/Calculator.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/aop/LogAspects.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo07.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo09.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderDao.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo10.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig8.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderService.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/extend/processor/MyBeanFactoryPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig9.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo11.java" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/extend/processor/MyBeanDefinitionPostProcessor.java" />
-        <option value="$PROJECT_DIR$/spring配置文件" />
-        <option value="$PROJECT_DIR$/spring-ioc/src/main/resources/beans.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="I:\data\repo" />
-        <option name="mavenHome" value="D:/develop/bw/maven" />
-        <option name="userSettingsFile" value="D:\develop\bw\maven\apache-maven-3.6.0\conf\settings.xml" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../develop/maven/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\develop\maven\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="spring-ioc" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="spring-ioc" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2570" />
-    <option name="y" value="-89" />
-    <option name="width" value="2580" />
-    <option name="height" value="1410" />
-  </component>
+  <component name="ProjectId" id="1q6fajJvbObCI5jlfbSHoqYWhoB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wj" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spring" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="spring-ioc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -345,7 +152,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -353,45 +160,7 @@
       <recent name="com.wj.spring.annotation.config" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Demo11">
-    <configuration name="Demo07" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="annotation.Demo07" />
-      <module name="spring-ioc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="annotation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Demo08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="annotation.Demo08" />
-      <module name="spring-ioc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="annotation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TestKafkaDemo">
     <configuration name="Demo09" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="annotation.Demo09" />
       <module name="spring-ioc" />
@@ -431,23 +200,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestKafkaConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wj.kafka.TestKafkaConsumer" />
+      <module name="spring-ioc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wj.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestKafkaDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wj.kafka.TestKafkaDemo" />
+      <module name="spring-ioc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wj.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Demo07" />
-      <item itemvalue="Application.Demo08" />
       <item itemvalue="Application.Demo09" />
       <item itemvalue="Application.Demo11" />
       <item itemvalue="Application.Demo10" />
+      <item itemvalue="Application.TestKafkaDemo" />
+      <item itemvalue="Application.TestKafkaConsumer" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestKafkaDemo" />
+        <item itemvalue="Application.TestKafkaConsumer" />
         <item itemvalue="Application.Demo11" />
         <item itemvalue="Application.Demo10" />
         <item itemvalue="Application.Demo09" />
-        <item itemvalue="Application.Demo08" />
-        <item itemvalue="Application.Demo07" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -474,93 +281,89 @@
       <workItem from="1593494121916" duration="1427000" />
       <workItem from="1593664908116" duration="598000" />
       <workItem from="1593845718339" duration="1205000" />
+      <workItem from="1616405027428" duration="7569000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70294000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-2567" y="-86" width="2062" height="1126" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978355" visible="true" weight="0.25798404" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.5021645" side_tool="true" weight="0.23003992" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.53323907" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4113402" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" x="-2538" y="396" width="2004" height="320" id="Terminal" order="8" type="WINDOWED" weight="0.3298969" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32371134" />
-      <window_info anchor="bottom" id="JProfiler" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32765958" />
-      <window_info anchor="right" id="Maven Projects" order="0" weight="0.3297587" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32934132" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.32984033" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="PlantUML" order="10" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978355" weight="0.21057884" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.5021645" side_tool="true" weight="0.23003992" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.53323907" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4113402" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" x="-2538" y="396" width="2004" height="320" id="Terminal" order="8" type="WINDOWED" weight="0.3298969" />
-      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32371134" />
-      <window_info anchor="bottom" id="JProfiler" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32765958" />
-      <window_info anchor="right" id="Maven Projects" order="0" weight="0.3297587" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32934132" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.32984033" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="123" />
     <option name="LAST_COMMIT_MESSAGE" value="123" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1730" y="29" key="#com.intellij.ide.util.MemberChooser" timestamp="1616411911107">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-1730" y="29" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616411911107" />
+    <state width="494" height="466" key="DebuggerActiveHint" timestamp="1616415306850">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="494" height="466" key="DebuggerActiveHint/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415306850" />
+    <state x="-1755" y="67" key="FileChooserDialogImpl" timestamp="1616405127134">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-1755" y="67" key="FileChooserDialogImpl/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616405127134" />
+    <state width="2005" height="388" key="GridCell.Tab.0.bottom" timestamp="1616415650118">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.0.bottom/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415650118" />
+    <state width="2005" height="388" key="GridCell.Tab.0.center" timestamp="1616415650118">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.0.center/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415650118" />
+    <state width="2005" height="388" key="GridCell.Tab.0.left" timestamp="1616415650118">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.0.left/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415650118" />
+    <state width="2005" height="388" key="GridCell.Tab.0.right" timestamp="1616415650118">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.0.right/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415650118" />
+    <state width="2005" height="388" key="GridCell.Tab.1.bottom" timestamp="1616415649935">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.1.bottom/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415649935" />
+    <state width="2005" height="388" key="GridCell.Tab.1.center" timestamp="1616415649935">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.1.center/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415649935" />
+    <state width="2005" height="388" key="GridCell.Tab.1.left" timestamp="1616415649935">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.1.left/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415649935" />
+    <state width="2005" height="388" key="GridCell.Tab.1.right" timestamp="1616415649935">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="388" key="GridCell.Tab.1.right/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415649935" />
+    <state x="-2034" y="-43" key="SettingsEditor" timestamp="1616412362987">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-2034" y="-43" key="SettingsEditor/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616412362987" />
+    <state x="-1814" y="55" width="543" height="524" key="StructurePopup" timestamp="1616415284407">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-1814" y="55" width="543" height="524" key="StructurePopup/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415284407" />
+    <state x="-1873" y="0" width="672" height="678" key="search.everywhere.popup" timestamp="1616413968459">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-1873" y="0" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616413968459" />
+    <state x="-1939" y="-4" key="spring file set editor" timestamp="1616415253836">
+      <screen x="-2560" y="-243" width="2048" height="1112" />
+    </state>
+    <state x="-1939" y="-4" key="spring file set editor/0.0.1536.824/-2560.-243.2048.1112@-2560.-243.2048.1112" timestamp="1616415253836" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -568,181 +371,151 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/cls/MyImportBeanDefinitionRegistrar.java</url>
           <line>18</line>
-          <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig4.java</url>
           <line>16</line>
-          <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://I:/bw/repo/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigApplicationContext.java</url>
           <line>85</line>
-          <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://I:/bw/repo/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.class</url>
           <line>529</line>
-          <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/AutowiredAnnotationBeanPostProcessor.java</url>
           <line>570</line>
-          <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java</url>
           <line>1046</line>
-          <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java</url>
           <line>1071</line>
-          <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/aop/LogAspects.java</url>
           <line>54</line>
-          <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.9.RELEASE/spring-aop-5.0.9.RELEASE-sources.jar!/org/springframework/aop/config/AopConfigUtils.java</url>
           <line>120</line>
-          <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java</url>
           <line>461</line>
-          <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java</url>
           <line>529</line>
-          <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE-sources.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.java</url>
           <line>186</line>
-          <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.9.RELEASE/spring-context-5.0.9.RELEASE-sources.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.java</url>
           <line>54</line>
-          <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo09.java</url>
           <line>13</line>
-          <properties />
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.6.RELEASE/spring-aop-5.0.6.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java</url>
           <line>162</line>
-          <properties />
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.java</url>
           <line>94</line>
-          <properties />
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.java</url>
           <line>281</line>
-          <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.java</url>
           <line>297</line>
-          <properties />
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.java</url>
           <line>542</line>
-          <properties />
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo10.java</url>
           <line>13</line>
-          <properties />
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/extend/processor/MyBeanFactoryPostProcessor.java</url>
           <line>13</line>
-          <properties />
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
           <line>531</line>
-          <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.java</url>
           <line>56</line>
-          <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java</url>
           <line>163</line>
-          <properties />
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.java</url>
           <line>93</line>
-          <properties />
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java</url>
           <line>224</line>
-          <properties />
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java</url>
           <line>344</line>
-          <properties />
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ComponentScanAnnotationParser.java</url>
           <line>76</line>
-          <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java</url>
           <line>271</line>
-          <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java</url>
           <line>311</line>
-          <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
@@ -775,145 +548,6 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE.jar!/org/springframework/transaction/annotation/SpringTransactionAnnotationParser.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE.jar!/org/springframework/transaction/annotation/AnnotationTransactionAttributeSource.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE.jar!/org/springframework/transaction/annotation/ProxyTransactionManagementConfiguration.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/annotation/SpringTransactionAnnotationParser.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/annotation/AnnotationTransactionAttributeSource.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/BeanFactoryTransactionAttributeSourceAdvisor.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/annotation/ProxyTransactionManagementConfiguration.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/annotation/TransactionManagementConfigurationSelector.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.6.RELEASE/spring-aop-5.0.6.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionInterceptor.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.0.6.RELEASE/spring-tx-5.0.6.RELEASE-sources.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.0.6.RELEASE/spring-aop-5.0.6.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java" />
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyTypeFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig8.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig9.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.6.RELEASE/spring-core-5.0.6.RELEASE-sources.jar!/org/springframework/core/env/AbstractPropertyResolver.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.0.6.RELEASE/spring-core-5.0.6.RELEASE-sources.jar!/org/springframework/core/env/AbstractEnvironment.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractRefreshableApplicationContext.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/ConfigurableApplicationContext.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/GenericApplicationContext.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/invoke/DirectMethodHandle.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/invoke/LambdaForm.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/LinkedHashMap.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.6.RELEASE/spring-beans-5.0.6.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.6.RELEASE/spring-beans-5.0.6.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java" />
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/extend/processor/MyBeanDefinitionPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/extend/processor/MyBeanFactoryPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/PostProcessorRegistrationDelegate.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassUtils.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassPostProcessor.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClass.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigUtils.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.0.6.RELEASE/spring-jdbc-5.0.6.RELEASE.jar!/org/springframework/jdbc/core/JdbcTemplate.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java" />
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo11.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="102" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigApplicationContext.java" />
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/test/java/annotation/Demo10.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/5.0.6.RELEASE/spring-jdbc-5.0.6.RELEASE-sources.jar!/org/springframework/jdbc/core/JdbcTemplate.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ComponentScanAnnotationParser.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.6.RELEASE/spring-context-5.0.6.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java" />
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/resources/beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/transaction/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring配置文件">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
-          <caret line="108" column="53" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spring-ioc/src/main/java/com/wj/spring/annotation/config/MyConfig6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
