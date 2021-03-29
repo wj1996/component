@@ -8,5 +8,4 @@ out
 .gradle
 build
 scripts
-c/*.exe
-c/.vscode
+.exe
