@@ -4,15 +4,15 @@
 struct field {
     char* name;
     int len;
+    char* type;
 };
-struct list {
-    struct filed* node;
-    struct filed* next;
+struct node {
+    struct field* data;
+    struct node* next;
 };
-
 struct table {
     char* tablename;
-    struct list* list;
+    struct node* head;
 };
 int validate(int argc,char* argv) {
     /* if (argc < 2 || argv == NULL) {
@@ -22,7 +22,7 @@ int validate(int argc,char* argv) {
     return 0;
 }
 char* trim(char* str) {
-    if (NULL == str) return;
+    if (NULL == str) return NULL;
     while (*str == ' ' || *str == '\n') {
         str++;
     }
@@ -49,13 +49,54 @@ int validFormat(char* str,int len,char* match) {
 struct field* getField(char* field) {
     trim(field);
     if (NULL == field) return NULL;
+    char* temp = field;
     strtok(field," ");
     struct field* p = malloc(sizeof(struct field));
     p->name = field;
-
+    char* param = strchr(temp,'(');
+    if (NULL != param) {
+        char* type = getData(field,"(");
+        if (NULL == type) {
+            printf("filed is not valid...\n");
+            return NULL;
+        }
+        p->type = type;
+        char* len = getData(field,")");
+        if (len == NULL) return NULL;
+        p->len = atoi(len);
+    } else {
+        param = strchr(field,')');
+        if (param != NULL) {
+            printf("filed is not valid...\n");
+            return NULL;
+        }
+        p->type = field;
+    }
     return p;
 
 
+}
+struct node* parseField(char* param) {
+    struct node* head = NULL;
+    char* field = getData(param,",");
+    while (field != NULL) {
+        struct field* f  = getField(field);
+        if (head == NULL) {
+            head = malloc(sizeof(struct node));
+            head->data = f;
+            head->next = NULL;
+        } else {
+            struct node* temp = head;
+            while ((head = head->next) != NULL) {
+                temp = head;
+            }   
+            struct node* node = malloc(sizeof(struct node));
+            temp->next = node;
+            node->data = f;
+            node->next = NULL;
+        }
+    }
+    return head;
 }
 
 int checkCreateFormat(char* param) {
@@ -77,13 +118,9 @@ int checkCreateFormat(char* param) {
     }
     t->tablename = tablename;
     //字段解析
-    char* field = getData(param,",");
-    if (validFormat(field,1,"(")) {
-        printf("syntax is not valid...\n");
-        return -1;
-    }
-    struct field* f  = getField(field);
-
+    struct node* head = parseField(param);
+    if (head == NULL) return -1;
+    t->head = head;
     
 }
 int handleCreate(char* param) {
@@ -138,7 +175,7 @@ int main(int argc,char* argv) {
     if (0 != ret) {
         return -1;
     }
-    while (ret == 0) {
+    while (ret != -2) {
         ret = accept();
     }
     system("pause");

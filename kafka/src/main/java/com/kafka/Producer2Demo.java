@@ -34,7 +34,7 @@ public class Producer2Demo extends Thread {
     @Override
     public void run() {
         int num = 0;
-        while (num < 10) {
+        while (num < 50) {
             String message = "message_" + num;
             System.out.println("begin send message:" + message);
             if (false) {
@@ -57,7 +57,7 @@ public class Producer2Demo extends Thread {
             }
             num++;
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

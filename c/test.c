@@ -27,8 +27,17 @@ void test2() {
         printf("%c---",p2++);
     }
 }
+
+void test3() {
+    char* str = "hello world";
+    char* s = strchr(str,'(');
+    s = strchr(str,'o');
+    printf("%s\n",str);
+    printf("%s\n",s);
+}
 int main() {
     // test();
-    test2();
+    // test2();
+    test3();
     return 0;
 }
