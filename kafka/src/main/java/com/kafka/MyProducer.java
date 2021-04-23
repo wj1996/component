@@ -1,12 +1,10 @@
 package com.kafka;
 
 import com.Utils;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -31,11 +29,31 @@ public class MyProducer<K,V> {
     }
 
     public static void sendMsg(String topic,KafkaProducer<String,String> kafkaProducer) throws ExecutionException, InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        int n = 3;
+        final CountDownLatch countDownLatch = new CountDownLatch(n);
+        for (int i = 0; i < n; i++) {
+
             ProducerRecord<String, String> record = new ProducerRecord<String, String>(topic,"key" + i,"value" + i);
-            RecordMetadata recordMetadata = kafkaProducer.send(record).get();
+            //同步
+           /* RecordMetadata recordMetadata = kafkaProducer.send(record).get();
             Utils.dealRecordMetadata(recordMetadata);
+            System.out.println("哈哈哈");*/
+
+            kafkaProducer.send(record, new Callback() {
+                public void onCompletion(RecordMetadata metadata, Exception exception) {
+                    try {
+                        Utils.dealRecordMetadata(metadata);
+                    } finally {
+                        countDownLatch.countDown();
+                    }
+
+
+                }
+            });
+            System.out.println("哈哈哈");
         }
+
+        countDownLatch.await();
     }
 
 }

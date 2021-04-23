@@ -10,3 +10,4 @@ build
 scripts
 c/*.exe
 c/.vscode
+*.iml
