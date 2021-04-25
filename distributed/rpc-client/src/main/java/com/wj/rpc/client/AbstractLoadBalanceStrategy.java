@@ -24,6 +24,6 @@ public abstract class AbstractLoadBalanceStrategy implements ILoadBalanceStrateg
         if (null == getRegistryInfo() || registryInfoList.isEmpty()) throw new RuntimeException("服务地址列表为空");
         if (registryInfoList.size() == 1) return registryInfoList.get(0);
         return findRegistryInfo();
-        myRegistry.listen();
     }
+    protected abstract RegistryInfo findRegistryInfo() throws Exception;
 }

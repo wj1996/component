@@ -13,7 +13,6 @@ import java.io.File;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MyRegistry {
 
@@ -40,12 +39,10 @@ public class MyRegistry {
     }
 
     public MyRegistry(String syscode) throws Exception {
-        this.registryInfoList = findSever(syscode);
-        listen("/" + syscode + "/ip");
         this.sysCode = syscode;
+        this.registryInfoList = findSever();
+        listen();
     }
-
-
     public void registry(RegistryInfo registryInfo) {
         InetAddress localHost = null;
         try {
@@ -77,13 +74,12 @@ public class MyRegistry {
         PathChildrenCache pathChildrenCache = new PathChildrenCache(curatorFramework,path,true);
         PathChildrenCacheListener pathChildrenCacheListener = (cf,pathChildrenCacheEvent) -> {
             if (pathChildrenCacheEvent.getType() == PathChildrenCacheEvent.Type.CHILD_ADDED || pathChildrenCacheEvent.getType() == PathChildrenCacheEvent.Type.CHILD_REMOVED) {
-                serverList = findSever();
+                registryInfoList = findSever();
             }
         };
         pathChildrenCache.getListenable().addListener(pathChildrenCacheListener);
         pathChildrenCache.start();
     }
-
     public void scan(String path) {
         File file = new File(path);
         if (!file.exists())

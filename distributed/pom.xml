@@ -26,6 +26,8 @@
         <module>rpc-client</module>
         <module>rpc-api</module>
         <module>user-service</module>
+        <module>IO</module>
+        <module>log</module>
     </modules>
 
 

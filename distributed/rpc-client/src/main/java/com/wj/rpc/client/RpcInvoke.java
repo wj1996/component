@@ -44,7 +44,7 @@ public class RpcInvoke<T> {
     }
 
     private Object myInvoke(Class clazz,Method method,Object[] args) throws Exception {
-        RegistryInfo registryInfo = myRegistry.findOneServer("server");
+        /*RegistryInfo registryInfo = myRegistry.findOneServer("server");
         Socket socket = new Socket(registryInfo.getIp(),registryInfo.getPort());
         logger.info("connect success：" + registryInfo.getIp() + ":" + registryInfo.getPort());
         Data data = Data.builder()
@@ -62,7 +62,8 @@ public class RpcInvoke<T> {
         if (o instanceof Exception) {
             throw (Exception)o;
         }
-        return o;
+        return o;*/
+        return null;
     }
 
     private String getImplName(String name) {

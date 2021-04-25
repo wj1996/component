@@ -98,11 +98,11 @@ public class ClientTest {
 
     @Test
     public void test2() throws Exception {
-        List<RegistryInfo> server = new MyRegistry().findSever("server");
+        /*List<RegistryInfo> server = new MyRegistry().findSever("server");
 
-       /* server.forEach(registryInfo ->  {
+       *//* server.forEach(registryInfo ->  {
             System.out.println(registryInfo);
-        });*/
+        });*//*
         RegistryInfo registryInfo = server.get(0);
         Socket socket = new Socket(registryInfo.getIp(),registryInfo.getPort());
         System.out.println("connection successs...");
@@ -117,7 +117,7 @@ public class ClientTest {
         objectOutputStream.flush();
         ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
         Object o = objectInputStream.readObject();
-        System.out.println(o);
+        System.out.println(o);*/
     }
 
 

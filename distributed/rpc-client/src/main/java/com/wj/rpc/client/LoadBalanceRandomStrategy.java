@@ -12,6 +12,7 @@ public class LoadBalanceRandomStrategy extends AbstractLoadBalanceStrategy {
     @Override
     public RegistryInfo findRegistryInfo() throws Exception {
         Random random = new Random();
-        return registryInfoList.get(random.nextInt(registryInfoList.size()));
+        return getRegistryInfo().get(random.nextInt(getRegistryInfo().size()));
     }
+
 }
