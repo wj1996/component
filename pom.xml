@@ -18,7 +18,7 @@
         <module>springcloud</module>
     </modules>
     <properties>
-        <springframework.version>5.0.9.RELEASE</springframework.version>
+        <springframework.version>5.2.22.RELEASE</springframework.version>
     </properties>
     <dependencyManagement>
         <dependencies>
